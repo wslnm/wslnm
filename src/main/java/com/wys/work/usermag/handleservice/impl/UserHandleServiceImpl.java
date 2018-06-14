@@ -11,7 +11,7 @@ import com.wys.work.usermag.handlerepository.IUserHandleRepository;
  */
 public class UserHandleServiceImpl implements IUserHandleService {
 
-	public IUserHandleRepository m_IUserHandleRepository;
+	public IUserHandleRepository userHandleRepositorys;
 
 	public UserHandleServiceImpl(){
 
