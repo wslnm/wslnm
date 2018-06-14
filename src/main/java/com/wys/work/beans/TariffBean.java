@@ -23,7 +23,7 @@ public class TariffBean implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8182717495869850432L;
-	
+	 
 	@Id
 	@Column
 	@GenericGenerator(name="hibernate.id",strategy="identity")
