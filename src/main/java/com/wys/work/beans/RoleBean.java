@@ -4,6 +4,9 @@ package com.wys.work.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * 
  * 角色管理表
@@ -11,6 +14,8 @@ import java.io.Serializable;
  *
  */
 
+@Entity
+@Table(name="t_role")
 public class RoleBean implements Serializable {
 
 	private static final long serialVersionUID = 5108288455364314017L;
