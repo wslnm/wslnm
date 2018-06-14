@@ -3,37 +3,57 @@ package com.wys.work.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * 一天使用服务时长类
  * @author dinghao
  *
  */
+@Entity
+@Table(name="t_server_day")
 public class ServerDayBean implements Serializable{
 
-	/**
+	/**  1
 	 * 
 	 */
 	private static final long serialVersionUID = 1267732578890610015L;
 
 	//主键id
+	@Id
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private long id;
 	
 	//日
+	@Column(name="day")
 	private int day;
 	
 	//月份
+	@Column(name="month")
 	private int month;
 	
 	//年份
+	@Column(name="year")
 	private int year;
 	
 	//总计服务时长
+	@Column(name="tatol_time")
 	private int totalTime;
 	
 	//服务器名称（IP）
+	@Column(name="service_name")
 	private String name;
 	
 	//对应的业务账号
+	@Column(name="user_acc")
 	private String acc;
 
 	public ServerDayBean() {
