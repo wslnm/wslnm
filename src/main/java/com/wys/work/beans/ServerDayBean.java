@@ -20,7 +20,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="t_server_day")
 public class ServerDayBean implements Serializable{
 
-	/**
+	/**  1
 	 * 
 	 */
 	private static final long serialVersionUID = 1267732578890610015L;
