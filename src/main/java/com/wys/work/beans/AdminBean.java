@@ -1,11 +1,26 @@
 package com.wys.work.beans;
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.GenericGenerator;
 /**
  * 管理员表，对应数据库中的表格t_admin
  * @author 西柚汁不念诗
  *用来定义系统中管理员们的属性
  */
+@Entity
+@Table(name="t_admin")
 public class AdminBean implements Serializable {
 
 	/**
@@ -14,25 +29,37 @@ public class AdminBean implements Serializable {
 	private static final long serialVersionUID = -2358734321070609546L;
 	
 	//id 对应数据库字段 id
+	@Id
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private Long id;
 	
 	// 管理员姓名 对应数据库字段admin_name
+	@Column(name="admin_name",length=20)
 	private String adminName;
 	
 	//管理员账号 对应数据库字段admin_acc
+	@Column(name="admin_acc",length=20)
 	private String adminAcc;
 	
 	//管理员密码  对应数据库字段admin_pwd
+	@Column(name="admin_pwd",length=32)
 	private String adminPwd;
 	
 	//管理员电话 对应数据库字段admin_tel
+	@Column(name="admin_tel",length=13)
 	private String adminTel;
 	
 	//管理员邮箱  对应数据库字段admin_email
+	@Column(name="admin_email",length=20)
 	private String adminEmail;
 	
 	//角色对象  对应当前管理员对应的角色  数据库是外键fk_role_id
 	//管理员与角色是多对一的关系
+	@ManyToOne(fetch=FetchType.LAZY)
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name="fk_role_id")
 	private RoleBean role;
 
 	public AdminBean() {
@@ -107,16 +134,10 @@ public class AdminBean implements Serializable {
 		this.role = role;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
 		return "AdminBean [id=" + id + ", adminName=" + adminName + ", adminAcc=" + adminAcc + ", adminPwd=" + adminPwd
 				+ ", adminTel=" + adminTel + ", adminEmail=" + adminEmail + "]";
 	}
 	
-	
-
 }
