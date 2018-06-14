@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class ServerMonthBean implements Serializable{
 
 	/**
-	 *  xiaoming 
+	 *  xiaoming xiao 
 	 */
 	private static final long serialVersionUID = -1868648815961395523L;
 	
