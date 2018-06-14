@@ -2,44 +2,75 @@ package com.wys.work.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * 账务账单表(年表)
  * @author 西柚汁不念诗
- *对应数据库的表格 t_accounting_bill_year
+ *对应数据库的表格 t_accounting_bill
  */
+@Entity
+@Table(name="t_accounting_bill")
 public class AccountingBillMonthBean implements Serializable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6796730602088728549L;
-	
-	//id 对应数据库字段id
+	private static final long serialVersionUID = 2462078600691843438L;
+
+	//id
+	@Id
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private Long id;
 	
-	//用户姓名,对应数据库字段accounting_bill_user_name
-	private String accountingBillUserName;
-	
-	//总费用，对应数据库字段total_cost
-	private int totalCost;
-	
-	//年份 ，对应数据库字段year
-	private int year;
-	
-	//用户的账务账号  对应数据库的字段user_acc
+	//账务账号，对应数据库字段user_acc
+	@Column(name="user_acc")
 	private String userAcc;
+	
+	//费用，对应数据库字段accounting_bill_cost
+	@Column(name="accounting_bill_cost")
+	private int accountingBillCost;
+	
+	//月份，对应数据库字段accounting_bill_month
+	@Column(name="accounting_bill_month")
+	private int accountingBillMonth;
+	
+	//支付方式，对应数据库字段accounting_bill_pay_method
+	//一共两种支付方式，0代表微信、1代表支付宝、2代表现金
+	@Column(name="accounting_bill_pay_method")
+	private int accountingBillCostPayMethod;
+	
+	//支付状态，对应数据库字段accounting_bill_pay_status  
+	//两种支付状态     0代表未支付  1代表支付
+	@Column(name="accounting_bill_pay_status")
+	private int accountingBillPayStatus;
+	
+	//年份  对应数据库字段year
+	@Column(name="year")
+	private int year;
 
 	public AccountingBillMonthBean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public AccountingBillMonthBean(String accountingBillUserName, int totalCost, int year, String userAcc) {
+	public AccountingBillMonthBean(String userAcc, int accountingBillCost, int accountingBillMonth,
+			int accountingBillCostPayMethod, int accountingBillPayStatus, int year) {
 		super();
-		this.accountingBillUserName = accountingBillUserName;
-		this.totalCost = totalCost;
-		this.year = year;
 		this.userAcc = userAcc;
+		this.accountingBillCost = accountingBillCost;
+		this.accountingBillMonth = accountingBillMonth;
+		this.accountingBillCostPayMethod = accountingBillCostPayMethod;
+		this.accountingBillPayStatus = accountingBillPayStatus;
+		this.year = year;
 	}
 
 	public Long getId() {
@@ -50,20 +81,44 @@ public class AccountingBillMonthBean implements Serializable{
 		this.id = id;
 	}
 
-	public String getAccountingBillUserName() {
-		return accountingBillUserName;
+	public String getUserAcc() {
+		return userAcc;
 	}
 
-	public void setAccountingBillUserName(String accountingBillUserName) {
-		this.accountingBillUserName = accountingBillUserName;
+	public void setUserAcc(String userAcc) {
+		this.userAcc = userAcc;
 	}
 
-	public int getTotalCost() {
-		return totalCost;
+	public int getAccountingBillCost() {
+		return accountingBillCost;
 	}
 
-	public void setTotalCost(int totalCost) {
-		this.totalCost = totalCost;
+	public void setAccountingBillCost(int accountingBillCost) {
+		this.accountingBillCost = accountingBillCost;
+	}
+
+	public int getAccountingBillMonth() {
+		return accountingBillMonth;
+	}
+
+	public void setAccountingBillMonth(int accountingBillMonth) {
+		this.accountingBillMonth = accountingBillMonth;
+	}
+
+	public int getAccountingBillCostPayMethod() {
+		return accountingBillCostPayMethod;
+	}
+
+	public void setAccountingBillCostPayMethod(int accountingBillCostPayMethod) {
+		this.accountingBillCostPayMethod = accountingBillCostPayMethod;
+	}
+
+	public int getAccountingBillPayStatus() {
+		return accountingBillPayStatus;
+	}
+
+	public void setAccountingBillPayStatus(int accountingBillPayStatus) {
+		this.accountingBillPayStatus = accountingBillPayStatus;
 	}
 
 	public int getYear() {
@@ -74,25 +129,18 @@ public class AccountingBillMonthBean implements Serializable{
 		this.year = year;
 	}
 
-	public String getUserAcc() {
-		return userAcc;
-	}
-
-	public void setUserAcc(String userAcc) {
-		this.userAcc = userAcc;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "AccountingBillMonthBean [id=" + id + ", accountingBillUserName=" + accountingBillUserName
-				+ ", totalCost=" + totalCost + ", year=" + year + ", userAcc=" + userAcc + "]";
+		return "AccountingBillYearBean [id=" + id + ", userAcc=" + userAcc + ", accountingBillCost="
+				+ accountingBillCost + ", accountingBillMonth=" + accountingBillMonth + ", accountingBillCostPayMethod="
+				+ accountingBillCostPayMethod + ", accountingBillPayStatus=" + accountingBillPayStatus + ", year="
+				+ year + "]";
 	}
-	
-	
+
 	
 	
 
