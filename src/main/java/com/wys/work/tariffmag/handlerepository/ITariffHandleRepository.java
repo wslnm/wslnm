@@ -1,5 +1,8 @@
 package com.wys.work.tariffmag.handlerepository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
 import com.wys.work.beans.TariffBean;
 
 /**
@@ -8,7 +11,7 @@ import com.wys.work.beans.TariffBean;
  * @version 1.0
  * @created 14-����-2018 13:07:14
  */
-public interface ITariffHandleRepository {
+public interface ITariffHandleRepository extends JpaRepository<TariffBean, Long>,JpaSpecificationExecutor<TariffBean> {
 
 	/**
 	 * 

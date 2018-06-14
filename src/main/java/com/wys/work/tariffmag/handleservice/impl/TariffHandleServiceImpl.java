@@ -1,5 +1,9 @@
 package com.wys.work.tariffmag.handleservice.impl;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.beans.TariffBean;
 import com.wys.work.tariffmag.handleservice.ITariffHandleService;
 import com.wys.work.tariffmag.handlerepository.ITariffHandleRepository;
@@ -9,9 +13,11 @@ import com.wys.work.tariffmag.handlerepository.ITariffHandleRepository;
  * @version 1.0
  * @created 14-����-2018 13:07:17
  */
+@Service
 public class TariffHandleServiceImpl implements ITariffHandleService {
 
-	public ITariffHandleRepository m_ITariffHandleRepository;
+	@Resource
+	public ITariffHandleRepository tariffHandleRepositoryImpl;
 
 	public TariffHandleServiceImpl(){
 
