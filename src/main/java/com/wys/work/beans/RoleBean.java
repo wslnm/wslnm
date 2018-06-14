@@ -13,7 +13,7 @@ import javax.persistence.Table;
  * @author yangyong
  *
  */
-
+  
 @Entity
 @Table(name="t_role")
 public class RoleBean implements Serializable {
