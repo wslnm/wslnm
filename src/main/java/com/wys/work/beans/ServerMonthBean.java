@@ -20,7 +20,7 @@ import org.hibernate.annotations.GenericGenerator;
 public class ServerMonthBean implements Serializable{
 
 	/**
-	 * 
+	 *  xiaoming xiao 
 	 */
 	private static final long serialVersionUID = -1868648815961395523L;
 	
