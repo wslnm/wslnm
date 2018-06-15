@@ -144,7 +144,7 @@
 		<!-- 扫描ORM映射关系 -->
 		<property name="packagesToScan">
 			<list>
-				<value>com.wys.work</value>
+				<value>com.wys.work.beans</value>
 			</list>
 		</property>
 		<property name="jpaProperties">
@@ -169,7 +169,7 @@
 		<property name="basePackage"
 			value="com.wys.work.accountingbillmag.mapper;com.wys.work.adminmag.mapper;com.wys.work.businessbillmag.mapper
 			;com.wys.work.businessmag.mapper; com.wys.work.loginlogmag.mapper;com.wys.work.operationlomag.mapper; 
-			com.wys.work.rolemag.mapper; com.wys.work.serverdatemag.mapper;  com.wys.work.servermag.mapper;   com.wys.work.tariffmag.mapper
+			com.wys.work.rolemag.mapper; com.wys.work.serverdatemag.mapper;  com.wys.work.servermag.mapper; com.wys.work.tariffmag.mapper
 			; com.wys.work.usermag.mapper; 	com.wys.work.userservermag.mapper"></property>
 		<property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
 	</bean>
