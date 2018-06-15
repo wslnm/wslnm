@@ -10,7 +10,7 @@ import com.wys.work.beans.Pager;
  * @version 1.0
  * @created 14-����-2018 13:07:12
  */
-public interface BusinessMapper {
+public interface BusinessbillMapper {
 
 	/**
 	 * 
