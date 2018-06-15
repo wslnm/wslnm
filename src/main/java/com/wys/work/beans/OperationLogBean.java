@@ -3,11 +3,18 @@ package com.wys.work.beans;
 
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  * 操作日志
  * @author liyiduo
  *
  */
+@Table(name="t_operation_log")
+@Entity
 public class OperationLogBean implements Serializable {
 
 	/**
@@ -16,27 +23,27 @@ public class OperationLogBean implements Serializable {
 	private static final long serialVersionUID = 9126228385214091788L;
 	
 	//id
-	
+	@Id
 	private long id;
 	
 	//管理员名称
-	
+	@Column(name="admin_name")
 	private String adminName;
 		
 	//角色名称
-		
+	@Column(name="role_name")	
 	private String roleName;
 	
 	//操作时间
-		
+	@Column(name="operation_date")	
 	private String operationDate;
 	
 	//系统模块
-	
+	@Column(name="system_mod")
 	private String systemMod;
 		
 	//具体操作
-		
+	@Column(name="operation")	
 	private String operation;
 
 	public long getId() {
