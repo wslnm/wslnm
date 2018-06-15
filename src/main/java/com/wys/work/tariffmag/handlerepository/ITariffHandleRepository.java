@@ -13,22 +13,6 @@ import com.wys.work.beans.TariffBean;
  */
 public interface ITariffHandleRepository extends JpaRepository<TariffBean, Long>,JpaSpecificationExecutor<TariffBean> {
 
-	/**
-	 * 
-	 * @param tariff
-	 */
-	public void deleteTariffBean(TariffBean tariff);
-
-	/**
-	 * 
-	 * @param tariff
-	 */
-	public void saveTariffBean(TariffBean tariff);
-
-	/**
-	 * 
-	 * @param tariff
-	 */
-	public void updateTariffBean(TariffBean tariff);
+	
 
 }
