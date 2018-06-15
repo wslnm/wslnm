@@ -11,7 +11,7 @@ import javax.persistence.Table;
 /**
  * 登陆日志
  * @author liyiduo
- *
+ * 
  */
 @Table(name="t_login_log")
 @Entity
