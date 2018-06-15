@@ -10,15 +10,12 @@ import com.wys.work.adminmag.queryservice.IAdminQueryService;
  */
 public class AdminController {
 
-	public IAdminHandleService m_IAdminHandleService;
-	public IAdminQueryService m_IAdminQueryService;
 
-	public AdminController(){
+	public IAdminHandleService adminHandleServiceImpl;
+	public IAdminQueryService adminQueryServiceImpl;
 
-	}
+	
 
-	public void finalize() throws Throwable {
-
-	}
+	
 
 }
