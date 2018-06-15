@@ -1,5 +1,9 @@
 package com.wys.work.serverdatemag.handlerservice.impl;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.beans.ServerDayBean;
 import com.wys.work.serverdatemag.handlerservice.IServerDayHandleService;
 import com.wys.work.serverdatemag.handlerepository.IServerDayHandleRepository;
@@ -9,17 +13,13 @@ import com.wys.work.serverdatemag.handlerepository.IServerDayHandleRepository;
  * @version 1.0
  * @created 14-����-2018 13:07:15
  */
+@Service
 public class ServerDayHandleServiceImpl implements IServerDayHandleService {
 
-	public IServerDayHandleRepository m_IServerDayHandleRepository;
+	@Resource
+	public IServerDayHandleRepository serverDayHandleRepository;
 
-	public ServerDayHandleServiceImpl(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+	
 
 	/**
 	 * 
@@ -34,7 +34,7 @@ public class ServerDayHandleServiceImpl implements IServerDayHandleService {
 	 * @param serverDay
 	 */
 	public void saveServerDay(ServerDayBean serverDay){
-
+		serverDayHandleRepository.save(serverDay);
 	}
 
 	/**

@@ -1,5 +1,8 @@
 package com.wys.work.serverdatemag.handlerepository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
 import com.wys.work.beans.ServerDayBean;
 
 /**
@@ -7,24 +10,8 @@ import com.wys.work.beans.ServerDayBean;
  * @version 1.0
  * @created 14-����-2018 13:07:14
  */
-public interface IServerDayHandleRepository {
+public interface IServerDayHandleRepository extends JpaRepository<ServerDayBean,Long>,JpaSpecificationExecutor<ServerDayBean> {
 
-	/**
-	 * 
-	 * @param serverDay
-	 */
-	public void deleteServerDay(ServerDayBean serverDay);
-
-	/**
-	 * 
-	 * @param serverDay
-	 */
-	public void saveServerDay(ServerDayBean serverDay);
-
-	/**
-	 * 
-	 * @param serverDay
-	 */
-	public void updateServerDay(ServerDayBean serverDay);
+	
 
 }

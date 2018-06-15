@@ -5,11 +5,21 @@ package com.wys.work.beans;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * 业务账号对应服务器
  * @author liliuhong
  *
  */
+@Entity
+@Table(name="t_user_server")
 public class UserServerBean implements Serializable {
 
 	/**
@@ -17,20 +27,31 @@ public class UserServerBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -7679953848606711567L;
 	
+	@Id
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private long id;
 	
+	@Column(name="server_info")
 	private String serverInfo;//服务器信息
 	
+	@Column(name="server_login")
 	private Date serverLogin;//登入时间
 	
+	@Column(name="server_exit_time")
 	private Date serverExitTime; //登出时间
 	
+	@Column(name="server_duration")
 	private int serverDuration;//时长
 	
+	@Column(name="login_acc")
 	private String login_acc;//登录账号
 	
+	@Column(name="cost")
 	private int cost;//费用
 	
+	@Column(name="tariff_name")
 	private String tariffName;//资费名称
 	
 	public UserServerBean() {
