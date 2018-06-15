@@ -4,7 +4,7 @@ import java.util.Map;
 
 import com.wys.work.beans.Pager;
 import com.wys.work.businessbillmag.queryrepository.IBusinessBillQueryRepository;
-import com.wys.work.businessbillmag.mapper.BusinessMapper;
+import com.wys.work.businessbillmag.mapper.BusinessbillMapper;
 
 /**
  * @author Administrator
@@ -13,7 +13,7 @@ import com.wys.work.businessbillmag.mapper.BusinessMapper;
  */
 public class BusinessBillQueryRepositoryImpl implements IBusinessBillQueryRepository {
 
-	public BusinessMapper m_BusinessMapper;
+	public BusinessbillMapper m_BusinessMapper;
 
 	public BusinessBillQueryRepositoryImpl(){
 
