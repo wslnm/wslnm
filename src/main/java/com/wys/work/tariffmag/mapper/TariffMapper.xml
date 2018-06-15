@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 命名空间
+1、分类的作用，避免Sql语句重复
+2、就是与我们JAVA接口关联
+ -->
+<mapper namespace="com.wys.work.tariffmag.mapper.TariffMapper">
+	
+	<resultMap type="TariffBean" id="tariffMap">
+		<id property="id" column="id" javaType="long"/>
+		<result property="tariffName" column="tariff_name" javaType="string"/>
+		<result property="tariffType" column="tariff_type" javaType="int"/>
+		<result property="basicTime" column="basic_time" javaType="int"/>
+		<result property="basicCost" column="basic_cost" javaType="int"/>
+		<result property="unitCost" column="unit_cost" javaType="int"/>
+		<result property="tariffDirections" column="tariff_directions" javaType="string"/>
+		<result property="tariffStatus" column="tariff_status" javaType="int"/>
+	</resultMap>
+	
+	
+	<!-- id属性定义着接口方法的名称 -->
+		<!-- 在mybatis框架中，取值方式有2种：第一种是#{}，第二种是${}
+		第一个区别在于：#取值的时候，会在参数的两侧添加''单引号
+		然而$取值的时候，则不会添加''单引号
+		第二个区别在于：#取值，编译方式采用预编译，$取值，编译方式直接才编译（可能会有
+		SQL注入的危险）
+		 -->
+
+	<!-- map中取值，依旧还是采用#或者$,只是取值是采用：map.键的方式 -->
+	
+	<!-- resultType与resultMap一样，都是用来映射返回结果集与对象之间的关系
+	只不过resultType需要结果集中字段名与对象的属性名保持名称一致 -->
+	
+	<select id="findTariffBean2Count" parameterType="Pager" resultType="int">
+		select count(*) from t_tariff limit #{index} , #{rows}
+	</select>
+	
+	<select id="findTariffBean2List" parameterType="Pager" resultMap="tariffMap">
+		select * from t_tariff limit #{index} , #{rows}
+	</select>
+	
+	
+</mapper>
