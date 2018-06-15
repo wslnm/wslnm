@@ -13,6 +13,7 @@ import javax.persistence.Table;
  * @author yangyong
  *
  */
+
   
 @Entity
 @Table(name="t_role")
