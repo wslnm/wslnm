@@ -24,9 +24,7 @@ import org.hibernate.annotations.OptimisticLocking;
 @OptimisticLocking(type=OptimisticLockType.VERSION)
 public class UserBean implements Serializable {
 
-	/**
-	 *  
-	 */  
+	
 	private static final long serialVersionUID = 1127657979634664503L;
 	 
 	@Id 
