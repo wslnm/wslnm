@@ -15,7 +15,7 @@ public class LoginLogHandleServiceImpl implements ILoginLogHandleService {
 	@Override
 	public void saveLoginLog(LoginLogBean loginlog) {
 		// TODO Auto-generated method stub
-		
+		iLoginLogHandleRepository.save(loginlog);
 	}
 
 }
