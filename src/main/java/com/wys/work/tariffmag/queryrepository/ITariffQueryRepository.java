@@ -1,6 +1,5 @@
 package com.wys.work.tariffmag.queryrepository;
 
-import java.util.Map;
 
 import com.wys.work.beans.Pager;
 
@@ -16,6 +15,6 @@ public interface ITariffQueryRepository {
 	 * @param pager
 	 * @param params
 	 */
-	public Pager findTariffBean2Pager(Pager pager, Map params);
+	public Pager findTariffBean2Pager(Pager pager);
 
 }

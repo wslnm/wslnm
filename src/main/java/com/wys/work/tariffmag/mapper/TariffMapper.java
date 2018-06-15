@@ -1,9 +1,9 @@
 package com.wys.work.tariffmag.mapper;
 
 import java.util.List;
-import java.util.Map;
 
 import com.wys.work.beans.Pager;
+
 
 /**
  * @author Administrator
@@ -16,12 +16,12 @@ public interface TariffMapper {
 	 * 
 	 * @param params
 	 */
-	public long findTariffBean2Count(Map params);
-
+	public int findTariffBean2Count(Pager pager);
+	
 	/**
 	 * 
 	 * @param params
 	 */
-	public List findTariffBean2List(Map params);
+	public List findTariffBean2List(Pager pager);
 
 }

@@ -17,22 +17,16 @@ import com.wys.work.tariffmag.handlerepository.ITariffHandleRepository;
 public class TariffHandleServiceImpl implements ITariffHandleService {
 
 	@Resource
-	public ITariffHandleRepository tariffHandleRepositoryImpl;
+	public ITariffHandleRepository tariffHandleRepository;
 
-	public TariffHandleServiceImpl(){
 
-	}
-
-	public void finalize() throws Throwable {
-
-	}
 
 	/**
 	 * 
 	 * @param tariff
 	 */
 	public void deleteTariffBean(TariffBean tariff){
-
+		tariffHandleRepository.delete(tariff);
 	}
 
 	/**
@@ -40,7 +34,7 @@ public class TariffHandleServiceImpl implements ITariffHandleService {
 	 * @param tariff
 	 */
 	public void saveTariffBean(TariffBean tariff){
-
+		tariffHandleRepository.save(tariff);
 	}
 
 	/**
@@ -48,7 +42,7 @@ public class TariffHandleServiceImpl implements ITariffHandleService {
 	 * @param tariff
 	 */
 	public void updateTariffBean(TariffBean tariff){
-
+		tariffHandleRepository.saveAndFlush(tariff);
 	}
 
 }

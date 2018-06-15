@@ -16,6 +16,6 @@ public interface ITariffQueryService {
 	 * @param params
 	 * @param pager
 	 */
-	public Pager findTariffBean2Pager(Map params, Pager pager);
+	public Pager findTariffBean2Pager(Pager pager);
 
 }
