@@ -1,5 +1,6 @@
 package com.wys.work.adminmag.queryservice.impl;
 
+import com.wys.work.beans.AdminBean;
 import com.wys.work.beans.Pager;
 import com.wys.work.adminmag.queryservice.IAdminQueryService;
 
@@ -27,6 +28,12 @@ public class AdminQueryServiceImpl implements IAdminQueryService {
 	public Pager findAdmins2Pager(Map parmas, Pager pager) {
 		// TODO Auto-generated method stub
 		return adminQueryRepositoryImpl.findAdmins2Pager(parmas, pager);
+	}
+
+	@Override
+	public AdminBean findAdminById(Long id) {
+		// TODO Auto-generated method stub
+		return adminQueryRepositoryImpl.findAdminById(id);
 	}
 
 }
