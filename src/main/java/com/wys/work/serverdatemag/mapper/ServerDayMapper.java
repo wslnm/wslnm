@@ -25,7 +25,7 @@ public interface ServerDayMapper {
 	@SelectProvider(type=ServerDayMapperSqlProvider.class,method="findServerDay2Count")
 	public int findServerDay2Count(@Param("pager")Pager pager, @Param("params")Map params);
 
-	/**
+	/** 
 	 * 
 	 * @param parmas
 	 */
