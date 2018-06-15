@@ -2,11 +2,21 @@ package com.wys.work.beans;
 
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 /**
  * 业务账单
  * @author liyiduo
  *
  */
+@Entity
+@Table(name="t_tariff")
 public class BusinessBillBean implements Serializable {
 
 	/**
@@ -16,26 +26,32 @@ public class BusinessBillBean implements Serializable {
 	
 	//id
 	
+	@Id
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private long id;
 	
 	//OS账号(业务账号)
 	
+	@Column(name="business_bill_os_acc",length=20)
 	private String businessBillOsAcc;
 	
 	//服务器信息
 	
+	@Column(name="business_bill_server",length=20)
 	private String businessBillServer;
 	
 	//时长
-	
+	@Column(name="business_bill_duration",length=11)
 	private int businessBillDuration;
 	
 	//费用
-	
+	@Column(name="business_bill_cost",length=11)
 	private int businessBillCost;
 	
 	//资费套餐
-	
+	@Column(name="business_bill_tariff_package",length=20)
 	private String businessBillTariffPackage;
 
 	public long getId() {

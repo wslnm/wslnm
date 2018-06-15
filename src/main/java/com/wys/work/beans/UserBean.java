@@ -4,36 +4,62 @@ package com.wys.work.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.OptimisticLockType;
+import org.hibernate.annotations.OptimisticLocking;
+
 /**
  * 账务账户（用户）表
  * @author liliuhong
  *
  */
+@Entity
+@Table(name="t_user")
+@OptimisticLocking(type=OptimisticLockType.VERSION)
 public class UserBean implements Serializable {
 
 	/**
-	 * 
-	 */
+	 *  
+	 */  
 	private static final long serialVersionUID = 1127657979634664503L;
-	
+	 
+	@Id 
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private long id;
 	
+	@Column(name="user_acc",length=20)
 	private String userAcc;//账务账号
 	
+	@Column(name="user_pwd",length=32)
 	private String userPwd;//账务密码
 	
+	@Column(name="user_name",length=20)
 	private String userName;//真实姓名
 	
+	@Column(name="user_gender",length=11)
 	private int userGender;//性别
 	
+	@Column(name="user_tel",length=13)
 	private String userTel;//联系电话
 	
+	@Column(name="user_address",length=100)
 	private String userAddress;//家庭住址
 	
+	@Column(name="user_idcard",length=20)
 	private String userIdcard;//身份证
 	
+	@Column(name="user_zipcode",length=11)
 	private int userZipcode;//邮编
 	
+	@Column(name="user_qq",length=11)
 	private int userQq;//qq
 	
 	public UserBean() {

@@ -23,9 +23,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="t_admin")
 public class AdminBean implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -2358734321070609546L;
 	
 	//id 对应数据库字段 id
