@@ -2,6 +2,7 @@ package com.wys.work.adminmag.queryrepository;
 
 import java.util.Map;
 
+import com.wys.work.beans.AdminBean;
 import com.wys.work.beans.Pager;
 
 /**
@@ -12,5 +13,7 @@ import com.wys.work.beans.Pager;
 public interface IAdminQueryRepository {
 
 	public Pager findAdmins2Pager(Map parmas, Pager pager);
+	
+	public AdminBean findAdminById(Long id);
 
 }

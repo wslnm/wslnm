@@ -37,4 +37,10 @@ public class AdminQueryRepositoryImpl implements IAdminQueryRepository {
 		return pager;
 	}
 
+	@Override
+	public AdminBean findAdminById(Long id) {
+		// TODO Auto-generated method stub
+		return am.findAdminById(id);
+	}
+
 }
