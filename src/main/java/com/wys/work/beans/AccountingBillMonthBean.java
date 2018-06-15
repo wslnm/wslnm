@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
- * 账务账单表(年表)
+ * 账务账单表(月表)
  * @author 西柚汁不念诗
  *对应数据库的表格 t_accounting_bill
  */
