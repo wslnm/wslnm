@@ -2,6 +2,10 @@ package com.wys.work.serverdatemag.queryservice.impl;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.beans.Pager;
 import com.wys.work.serverdatemag.queryservice.IServerYearQueryService;
 import com.wys.work.serverdatemag.queryrepository.IServerYearQueryRepository;
@@ -11,17 +15,13 @@ import com.wys.work.serverdatemag.queryrepository.IServerYearQueryRepository;
  * @version 1.0
  * @created 14-����-2018 13:07:16
  */
+@Service
 public class ServerYearQueryServiceImpl implements IServerYearQueryService {
 
-	public IServerYearQueryRepository m_IServerYearQueryRepository;
+	@Resource
+	public IServerYearQueryRepository serverYearQueryRepositoryImpl;
 
-	public ServerYearQueryServiceImpl(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+	
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class ServerYearQueryServiceImpl implements IServerYearQueryService {
 	 * @param parmas
 	 */
 	public Pager findServerYear2Pgaer(Pager pager, Map parmas){
-		return null;
+		return serverYearQueryRepositoryImpl.findServerYear2Pager(pager, parmas);
 	}
 
 }
