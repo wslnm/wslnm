@@ -29,7 +29,7 @@ public class TariffBean implements Serializable {
 	@GenericGenerator(name="hibernate.id",strategy="identity")
 	@GeneratedValue(generator="hibernate.id")
 	private long id;
-	 
+	
 	@Column(name="tariff_name",length=20)
 	private String tariffName;//资费名
 	
