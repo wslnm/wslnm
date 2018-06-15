@@ -3,40 +3,47 @@ package com.wys.work.beans;
 
 
 import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 /**
  * 登陆日志
  * @author liyiduo
  *
  */
+@Table(name="t_login_log")
+@Entity
 public class LoginLogBean implements Serializable {
 
 	/**
-	 * 
+	 *  
 	 */
 	private static final long serialVersionUID = 3085463210742039512L;
 	
 	//id
-	
+	@Id
 	private long id;
 	
 	//管理员名称
-	
+	@Column(name="admin_name")
 	private String adminName;
 	
 	//角色名称
-	
+	@Column(name="role_name")
 	private String roleName;
-	
+	 
 	//操作时间
-	
+	@Column(name="operation_date")
 	private String operationDate;
 	
 	//IP地址
-	
+	@Column(name="ip")
 	private String ip;
 	
 	//操作(登录/退出)
-	
+	@Column(name="operation")
 	private String operation;
 
 	public long getId() {
