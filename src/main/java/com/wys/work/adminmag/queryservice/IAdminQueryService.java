@@ -12,8 +12,8 @@ import com.wys.work.beans.Pager;
 public interface IAdminQueryService {
 
 	/**
-	 * 
-	 * @param parmas
+	 * 根据管理员名称、管理员账号、联系电话进行分页查询
+	 * @param parmas      
 	 * @param pager
 	 */
 	public Pager findAdmins2Pager(Map parmas, Pager pager);
