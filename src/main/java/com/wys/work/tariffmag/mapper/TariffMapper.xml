@@ -40,6 +40,6 @@
 	<select id="findTariffBean2List" parameterType="Pager" resultMap="tariffMap">
 		select * from t_tariff limit #{index} , #{rows}
 	</select>
-	
+	 
 	
 </mapper>
