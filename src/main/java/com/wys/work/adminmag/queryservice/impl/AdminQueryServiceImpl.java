@@ -5,6 +5,10 @@ import com.wys.work.adminmag.queryservice.IAdminQueryService;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.adminmag.queryrepository.IAdminQueryRepository;
 
 /**
@@ -12,22 +16,17 @@ import com.wys.work.adminmag.queryrepository.IAdminQueryRepository;
  * @version 1.0
  * @created 14-����-2018 13:07:12
  */
+
+@Service
 public class AdminQueryServiceImpl implements IAdminQueryService {
 
-	public IAdminQueryRepository m_IAdminQueryRepository;
-
-
-	/**
-	 * 
-	 * @param map
-	 */
-	public Pager findAdmins2Pager(Map parmas, Pager pager){
-		//public Pager findAdmins2Pager;
-
-		return null;
+	@Resource
+	public IAdminQueryRepository adminQueryRepositoryImpl;
+	
+	@Override
+	public Pager findAdmins2Pager(Map parmas, Pager pager) {
+		// TODO Auto-generated method stub
+		return adminQueryRepositoryImpl.findAdmins2Pager(parmas, pager);
 	}
-
-
-
 
 }
