@@ -26,7 +26,7 @@ public class AdminBean implements Serializable {
 	
 	private static final long serialVersionUID = -2358734321070609546L;
 	
-	//id 对应数据库字段 id
+	//id 对应数据库字段 id     
 	@Id
 	@Column
 	@GenericGenerator(name="hibernate.id",strategy="identity")
