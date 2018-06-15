@@ -2,6 +2,11 @@ package com.wys.work.adminmag.handleservice.impl;
 
 import com.wys.work.beans.AdminBean;
 import com.wys.work.adminmag.handleservice.IAdminHandleService;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.adminmag.handlerepository.IAdminHandleRepository;
 
 /**
@@ -9,46 +14,29 @@ import com.wys.work.adminmag.handlerepository.IAdminHandleRepository;
  * @version 1.0
  * @created 14-����-2018 13:07:12
  */
+
+@Service
 public class AdminHandleServiceImpl implements IAdminHandleService {
 
-	public IAdminHandleRepository m_IAdminHandleRepository;
+	@Resource
+	private IAdminHandleRepository adminHandleRepository;
 
-	public AdminHandleServiceImpl(){
-
+	@Override
+	public void deleteAdmin(AdminBean admin) {
+		// TODO Auto-generated method stub
+		adminHandleRepository.delete(admin);
 	}
 
-	public void finalize() throws Throwable {
-
+	@Override
+	public void saveAdmin(AdminBean admin) {
+		// TODO Auto-generated method stub
+		adminHandleRepository.save(admin);
 	}
 
-	/**
-	 * 
-	 * @param admin
-	 */
-	public void deleteAdmin(AdminBean admin){
-		//public void deleteAdmin;
-
-
-	}
-
-	/**
-	 * 
-	 * @param admin
-	 */
-	public void saveAdmin(AdminBean admin){
-		//public void saveAdmin;
-
-
-	}
-
-	/**
-	 * 
-	 * @param admin
-	 */
-	public void updateAdmin(AdminBean admin){
-		//public void udateAdmin;
-
-
+	@Override
+	public void updateAdmin(AdminBean admin) {
+		// TODO Auto-generated method stub
+		adminHandleRepository.saveAndFlush(admin);
 	}
 
 }
