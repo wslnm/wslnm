@@ -36,4 +36,10 @@ public class AdminQueryServiceImpl implements IAdminQueryService {
 		return adminQueryRepositoryImpl.findAdminById(id);
 	}
 
+	@Override
+	public AdminBean login(String adminAcc, String adminPwd) {
+		// TODO Auto-generated method stub
+		return adminQueryRepositoryImpl.login(adminAcc, adminPwd);
+	}
+
 }
