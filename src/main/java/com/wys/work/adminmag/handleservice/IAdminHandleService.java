@@ -15,7 +15,7 @@ public interface IAdminHandleService {
 	 */
 	public void deleteAdmin(AdminBean admin);
 
-	/**
+	/** 
 	 * 
 	 * @param admin
 	 */
