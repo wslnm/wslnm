@@ -15,5 +15,13 @@ public interface IAdminQueryRepository {
 	public Pager findAdmins2Pager(Map parmas, Pager pager);
 	
 	public AdminBean findAdminById(Long id);
+	
+	/**
+	 * 通过输入的管理员账号密码进行管理员登录
+	 * @param adminAcc
+	 * @param adminPwd
+	 * @return 返回管理员个人信息
+	 */
+	public AdminBean login(String adminAcc,String adminPwd);
 
 }
