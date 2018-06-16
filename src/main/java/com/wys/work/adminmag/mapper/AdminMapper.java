@@ -60,5 +60,22 @@ public interface AdminMapper {
 	@ResultType(AdminBean.class)
 	@SelectProvider(type=AdminMapperSqlProvider.class,method="findAdminsByParams")
 	public List<AdminBean> findAdmin2List(@Param("parmas")Map parmas);
-
+	
+	/**
+	 * 进行登录并查询到此管理员的个人信息
+	 * @param adminAcc
+	 * @param adminPwd
+	 * @return
+	 */
+	@Results({
+		@Result(id=true,property="id",column="id",javaType=Long.class),
+		@Result(property="adminName",column="admin_name",javaType=String.class),
+		@Result(property="adminAcc",column="admin_acc",javaType=String.class),
+		@Result(property="adminPwd",column="admin_pwd",javaType=String.class),
+		@Result(property="adminTel",column="admin_tel",javaType=String.class),
+		@Result(property="adminEmail",column="admin_email",javaType=String.class),
+		@Result(property="role",javaType=RoleBean.class,column="fk_role_id",one=@One(select="findRoleByID"))
+	})
+	@Select(value= {"select * from t_admin where admin_acc = #{adminAcc} and admin_pwd = #{adminPwd}"})
+	public AdminBean login(@Param("adminAcc")String adminAcc,@Param("adminPwd")String adminPwd);
 }
