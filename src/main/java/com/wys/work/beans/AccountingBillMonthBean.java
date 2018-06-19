@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -56,6 +57,9 @@ public class AccountingBillMonthBean implements Serializable{
 	//年份  对应数据库字段year
 	@Column(name="year")
 	private int year;
+	
+	@Transient
+	private UserBean user;
 
 	public AccountingBillMonthBean() {
 		super();

@@ -23,5 +23,7 @@ public interface BusinessbillMapper {
 	 * @param map
 	 */
 	public List findBusiness2List(Map map);
+	
+	
 
 }

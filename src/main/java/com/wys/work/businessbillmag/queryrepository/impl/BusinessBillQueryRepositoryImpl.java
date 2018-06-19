@@ -13,15 +13,8 @@ import com.wys.work.businessbillmag.mapper.BusinessbillMapper;
  */
 public class BusinessBillQueryRepositoryImpl implements IBusinessBillQueryRepository {
 
-	public BusinessbillMapper m_BusinessMapper;
+	public BusinessbillMapper businessMapper;
 
-	public BusinessBillQueryRepositoryImpl(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
 
 	/**
 	 * 
