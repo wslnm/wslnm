@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>xiangmu3</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+    <script src="js/jQuery-2.2.2-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="layui/layui.js"></script>
+    <style>
+        #table{
+            position: absolute;
+            top : 120px;
+            left: 420px;
+            width: 700px;
+            height: 250px;
+        }
+        #fenye{
+            position: absolute;
+            top : 370px;
+            left: 420px;
+        }
+        #add{
+            position: relative;
+            top : -110px;
+            left: 150px;
+        }
+        #form1{
+            position: absolute;
+            top : 520px;
+            left: 500px;
+            height: 100px;
+            width: 450px;
+        }
+        #tijiao{
+            position: relative;
+            top : -100px;
+            left: 200px;
+        }
+        #xiala{
+            position: relative;
+            top : -20px;
+            left: 164px;
+        }
+        #leixing{
+            position: relative;
+            top : 15px;
+            left: -102px;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <div class="nav-top">
+        <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="images/mini.png" ></div>
+    </div>
+    <ul>
+        <li class="nav-item">
+            <a href="javascript;"><i class="my-icon nav-icon icon_1"></i><span>角色管理</span><i class="my-icon nav-more"></i></a>
+            <ul>
+                <li><a href="jueseguanli.html"><span>角色管理</span></a></li>
+                <li><a href="juesetianjia.html"><span>添加角色</span></a></li>
+                <li><a href="juesexiugai.html"><span>修改角色</span></a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;"><i class="my-icon nav-icon icon_2"></i><span>权限管理</span><i class="my-icon nav-more"></i></a>
+            <ul>
+                <li><a href="quanxianguanli.html"><span>权限管理</span></a></li>
+                <li><a href="quanxiantianjia.html"><span>添加权限</span></a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="htmleaf-container">
+    <header class="htmleaf-header">
+        <h1>角色管理</h1>
+        <div class="htmleaf-links">
+            <a class="htmleaf-icon icon-htmleaf-home-outline" href="index.html" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+            <a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="index.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+        </div>
+    </header>
+    <div class="related" style="height: 530px">
+        <div id="table">
+            <table class="table">
+                <tr>
+                    <th>角色名称</th> <th>角色类型</th> <th>权限</th> <th>操作</th>
+                </tr>
+                <tr>
+                    <td>超级管理员</td><td>超级管理员</td><td>所有权限</td><td><button>修改</button><button>删除</button></td>
+                </tr>
+                <tr>
+                    <td>普通管理员</td><td>普通管理员</td><td>用户管理权限</td><td><button>修改</button><button>删除</button></td>
+                </tr>
+            </table>
+        </div>
+        <div id="fenye">
+            <div id="demo0"></div>
+            <div id="add">
+
+            </div>
+        </div>
+        <div id="form1">
+            <form action="#" method="post">
+                <label>角色名称</label> <input type="text" name=""><br>
+                <label id="leixing">角色类型</label> <select name="" id="xiala" class="form-control" style="width: 200px"><br>
+                <option value="所有角色" selected>所有角色</option>
+                <option value="所有角色">所有角色</option>
+            </select>
+                <div id="tijiao">
+                    <a href="javascript:void(0)" onclick="submitForm()">查询</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['laypage', 'layer'], function() {
+        var laypage = layui.laypage
+            , layer = layui.layer;
+
+        //总页数低于页码总数
+        laypage.render({
+            elem: 'demo0'
+            , count: 50 //数据总数
+        });
+    })
+
+</script>
+<script>window.jQuery || document.write('<script src="js/jQuery-2.2.2-min.js"><\/script>')</script>
+<script type="text/javascript" src="js/nav.js"></script>
+</body>
+</html>
