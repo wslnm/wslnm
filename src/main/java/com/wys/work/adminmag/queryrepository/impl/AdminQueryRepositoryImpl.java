@@ -31,7 +31,7 @@ public class AdminQueryRepositoryImpl implements IAdminQueryRepository {
 		// TODO Auto-generated method stub
 		Long a = am.findAdmin2Count(parmas);
 		int totalRows = a.intValue();
-		List<AdminBean> datas = am.findAdmin2List(parmas);
+		List<AdminBean> datas = am.findAdmin2List(pager,parmas);
 		pager.setDatas(datas);
 		pager.setTotalRows(totalRows);
 		return pager;
