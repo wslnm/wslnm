@@ -51,15 +51,24 @@ public interface AdminMapper {
 	 * 查询出的总条数
 	 * @param parmas
 	 */
-	public long findAdmin2Count(Map parmas);
+	@SelectProvider(type=AdminMapperSqlProvider.class,method="findAdmins2Count")
+	public long findAdmin2Count(@Param("parmas")Map parmas);
 
 	/**
 	 * 查询出的数据集合
 	 * @param parmas
 	 */
-	@ResultType(AdminBean.class)
+	@Results({
+		@Result(id=true,property="id",column="id",javaType=Long.class),
+		@Result(property="adminName",column="admin_name",javaType=String.class),
+		@Result(property="adminAcc",column="admin_acc",javaType=String.class),
+		@Result(property="adminPwd",column="admin_pwd",javaType=String.class),
+		@Result(property="adminTel",column="admin_tel",javaType=String.class),
+		@Result(property="adminEmail",column="admin_email",javaType=String.class),
+		@Result(property="role",javaType=RoleBean.class,column="fk_role_id",one=@One(select="findRoleByID"))
+	})
 	@SelectProvider(type=AdminMapperSqlProvider.class,method="findAdminsByParams")
-	public List<AdminBean> findAdmin2List(@Param("parmas")Map parmas);
+	public List<AdminBean> findAdmin2List(@Param("pager")Pager pager, @Param("parmas")Map parmas);
 	
 	/**
 	 * 进行登录并查询到此管理员的个人信息
