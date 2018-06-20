@@ -32,10 +32,6 @@ public class AccountingBillMonthBean implements Serializable{
 	@GeneratedValue(generator="hibernate.id")
 	private Long id;
 	
-	//账务账号，对应数据库字段user_acc
-	@Column(name="user_acc")
-	private String userAcc;
-	
 	//费用，对应数据库字段accounting_bill_cost
 	@Column(name="accounting_bill_cost")
 	private int accountingBillCost;
@@ -69,7 +65,6 @@ public class AccountingBillMonthBean implements Serializable{
 	public AccountingBillMonthBean(String userAcc, int accountingBillCost, int accountingBillMonth,
 			int accountingBillCostPayMethod, int accountingBillPayStatus, int year) {
 		super();
-		this.userAcc = userAcc;
 		this.accountingBillCost = accountingBillCost;
 		this.accountingBillMonth = accountingBillMonth;
 		this.accountingBillCostPayMethod = accountingBillCostPayMethod;
@@ -83,14 +78,6 @@ public class AccountingBillMonthBean implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUserAcc() {
-		return userAcc;
-	}
-
-	public void setUserAcc(String userAcc) {
-		this.userAcc = userAcc;
 	}
 
 	public int getAccountingBillCost() {
@@ -139,7 +126,7 @@ public class AccountingBillMonthBean implements Serializable{
 
 	@Override
 	public String toString() {
-		return "AccountingBillYearBean [id=" + id + ", userAcc=" + userAcc + ", accountingBillCost="
+		return "AccountingBillYearBean [id=" + id + ", accountingBillCost="
 				+ accountingBillCost + ", accountingBillMonth=" + accountingBillMonth + ", accountingBillCostPayMethod="
 				+ accountingBillCostPayMethod + ", accountingBillPayStatus=" + accountingBillPayStatus + ", year="
 				+ year + "]";
