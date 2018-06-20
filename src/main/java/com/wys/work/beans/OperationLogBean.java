@@ -42,7 +42,7 @@ public class OperationLogBean implements Serializable {
 	private Integer roleName;
 	
 	//操作时间1.0
-	@Column(name="operation_date")	
+	@Column(name="operation_time")	
 	private Date operationDate;
 	
 	//系统模块1.0

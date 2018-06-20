@@ -168,7 +168,7 @@
 		<!-- basePackage 代表着哪些包需要扫描SQLMapper映射文件， 如果有多个包，格式为：package01;package02;package03…… -->
 		<property name="basePackage"
 			value="com.wys.work.accountingbillmag.mapper;com.wys.work.adminmag.mapper;com.wys.work.businessbillmag.mapper
-			;com.wys.work.businessmag.mapper; com.wys.work.loginlogmag.mapper;com.wys.work.operationlomag.mapper; 
+			;com.wys.work.businessmag.mapper; com.wys.work.loginlogmag.mapper;com.wys.work.operationlogmag.mapper; 
 			com.wys.work.rolemag.mapper; com.wys.work.serverdatemag.mapper;  com.wys.work.servermag.mapper; com.wys.work.tariffmag.mapper
 			; com.wys.work.usermag.mapper; 	com.wys.work.userservermag.mapper"></property>
 		<property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
