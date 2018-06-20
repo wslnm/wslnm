@@ -1,7 +1,13 @@
 package com.wys.work.businessbillmag.queryrepository.impl;
 
+import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Repository;
+
+import com.wys.work.beans.AccountingBillMonthBean;
 import com.wys.work.beans.Pager;
 import com.wys.work.businessbillmag.queryrepository.IBusinessBillQueryRepository;
 import com.wys.work.businessbillmag.mapper.BusinessbillMapper;
@@ -11,8 +17,10 @@ import com.wys.work.businessbillmag.mapper.BusinessbillMapper;
  * @version 1.0
  * @created 14-����-2018 13:07:12
  */
+@Repository
 public class BusinessBillQueryRepositoryImpl implements IBusinessBillQueryRepository {
 
+	@Resource
 	public BusinessbillMapper businessMapper;
 
 
@@ -21,7 +29,16 @@ public class BusinessBillQueryRepositoryImpl implements IBusinessBillQueryReposi
 	 * @param map
 	 */
 	public Pager findBusinessBill2Pager(Map map){
-		return null;
+		Pager pager = (Pager) map.get("pager");
+		
+		map.put("index", pager.getIndex());
+		map.put("rows", pager.getRows());
+		int rows = businessMapper.findBusiness2Count(map);
+		pager.setTotalRows(rows);
+		
+		List<AccountingBillMonthBean> list = businessMapper.findBusiness2List(map);
+		pager.setDatas(list);
+		return pager;
 	}
 
 }

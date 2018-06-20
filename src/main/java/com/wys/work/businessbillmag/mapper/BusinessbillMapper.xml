@@ -8,14 +8,13 @@
  -->
 <mapper namespace="com.wys.work.businessbillmag.mapper.BusinessbillMapper">
 	  
-	<resultMap type="AccountingBillMonthBean" id="accMap">
+	<resultMap type="BusinessBillBean" id="accMap">
 		<id property="id" column="id" javaType="long"/>
-		<result property="userAcc" column="user_acc" javaType="string"/>
-		<result property="accountingBillCost" column="accounting_bill_cost" javaType="int"/>
-		<result property="accountingBillMonth" column="accounting_bill_month" javaType="int"/>
-		<result property="accountingBillCostPayMethod" column="accounting_bill_pay_method" javaType="int"/>
-		<result property="accountingBillPayStatus" column="accounting_bill_pay_status" javaType="int"/>
-		<result property="year" column="year" javaType="int"/>
+		<result property="businessBillOsAcc" column="business_bill_os_acc" javaType="string"/>
+		<result property="businessBillServer" column="business_bill_server" javaType="int"/>
+		<result property="businessBillDuration" column="business_bill_duration" javaType="int"/>
+		<result property="businessBillCost" column="business_bill_cost" javaType="int"/>
+		<result property="businessBillTariffPackage" column="business_bill_tariff_package" javaType="string"/>
 	</resultMap>
 	
 	
@@ -32,17 +31,19 @@
 	<!-- resultType与resultMap一样，都是用来映射返回结果集与对象之间的关系
 	只不过resultType需要结果集中字段名与对象的属性名保持名称一致 -->
 	
-	<select id="findTariffBean2Count" parameterType="Map" resultType="int">
+	<select id="findBusiness2Count" parameterType="Map" resultType="int">
 		select count(*) from t_accounting_bill 
-		
+		<where>
+			business_bill_user_acc = #{user}
+		</where>
 		limit #{index} , #{rows}
 	</select>
 	
-	<select id="findTariffBean2List" parameterType="Map" resultMap="accMap">
+	<select id="findBusiness2List" parameterType="Map" resultMap="accMap">
 		select * from t_accounting_bill 
-		
+		<where>
+			business_bill_user_acc = #{user}
+		</where>
 		limit #{index} , #{rows}
 	</select>
-	 
-	
 </mapper>
