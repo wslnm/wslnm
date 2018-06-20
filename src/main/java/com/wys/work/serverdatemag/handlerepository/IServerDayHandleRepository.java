@@ -12,6 +12,4 @@ import com.wys.work.beans.ServerDayBean;
  */
 public interface IServerDayHandleRepository extends JpaRepository<ServerDayBean,Long>,JpaSpecificationExecutor<ServerDayBean> {
 
-	
-
 }

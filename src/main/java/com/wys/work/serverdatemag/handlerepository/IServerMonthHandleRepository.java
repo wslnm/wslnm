@@ -1,5 +1,9 @@
 package com.wys.work.serverdatemag.handlerepository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+
 import com.wys.work.beans.ServerMonthBean;
 
 /**
@@ -7,24 +11,6 @@ import com.wys.work.beans.ServerMonthBean;
  * @version 1.0
  * @created 14-����-2018 13:07:14
  */
-public interface IServerMonthHandleRepository {
-
-	/**
-	 * 
-	 * @param serverMonth
-	 */
-	public void deleteServerMonth(ServerMonthBean serverMonth);
-
-	/**
-	 * 
-	 * @param serverMonth
-	 */
-	public void saveServerMonth(ServerMonthBean serverMonth);
-
-	/**
-	 * 
-	 * @param serverMonth
-	 */
-	public void updateServerMonth(ServerMonthBean serverMonth);
+public interface IServerMonthHandleRepository  extends JpaRepository<ServerMonthBean,Long>,JpaSpecificationExecutor<ServerMonthBean>{
 
 }

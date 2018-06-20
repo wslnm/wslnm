@@ -1,5 +1,9 @@
 package com.wys.work.serverdatemag.handlerepository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+import com.wys.work.beans.ServerDayBean;
 import com.wys.work.beans.ServerYearBean;
 
 /**
@@ -7,24 +11,8 @@ import com.wys.work.beans.ServerYearBean;
  * @version 1.0
  * @created 14-����-2018 13:07:14
  */
-public interface IServerYearHandleRepository {
+public interface IServerYearHandleRepository extends JpaRepository<ServerYearBean,Long>,JpaSpecificationExecutor<ServerYearBean>{
 
-	/**
-	 * 
-	 * @param serverYear
-	 */
-	public void deleteServerYear(ServerYearBean serverYear);
 
-	/**
-	 * 
-	 * @param serverYear
-	 */
-	public void saveServerYear(ServerYearBean serverYear);
-
-	/**
-	 * 
-	 * @param serverYear
-	 */
-	public void updateServerYear(ServerYearBean serverYear);
 
 }

@@ -1,5 +1,9 @@
 package com.wys.work.serverdatemag.handlerservice.impl;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.beans.ServerMonthBean;
 import com.wys.work.serverdatemag.handlerepository.IServerMonthHandleRepository;
 import com.wys.work.serverdatemag.handlerservice.IServerMonthHandleService;
@@ -9,24 +13,19 @@ import com.wys.work.serverdatemag.handlerservice.IServerMonthHandleService;
  * @version 1.0
  * @created 14-����-2018 13:07:16
  */
+@Service
 public class ServerMonthHandleServiceImpl implements IServerMonthHandleService {
 
-	public IServerMonthHandleRepository m_IServerMonthHandleRepository;
+	@Resource
+	public IServerMonthHandleRepository serverMonthHandleRepository;
 
-	public ServerMonthHandleServiceImpl(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-
+	
 	/**
 	 * 
 	 * @param serverMonth
 	 */
 	public void deleteServerMonth(ServerMonthBean serverMonth){
-
+		serverMonthHandleRepository.delete(serverMonth);
 	}
 
 	/**
@@ -34,7 +33,7 @@ public class ServerMonthHandleServiceImpl implements IServerMonthHandleService {
 	 * @param serverMonth
 	 */
 	public void saveServerMonth(ServerMonthBean serverMonth){
-
+		serverMonthHandleRepository.save(serverMonth);
 	}
 
 	/**
@@ -42,7 +41,7 @@ public class ServerMonthHandleServiceImpl implements IServerMonthHandleService {
 	 * @param serverMonth
 	 */
 	public void updateServerMonth(ServerMonthBean serverMonth){
-
+		serverMonthHandleRepository.saveAndFlush(serverMonth);
 	}
 
 }

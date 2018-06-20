@@ -3,11 +3,15 @@ package com.wys.work.beans;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 /**
  * 登陆日志
  * @author liyiduo
@@ -24,9 +28,12 @@ public class LoginLogBean implements Serializable {
 	
 	//id
 	@Id
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private long id;
 	
-	//管理员名称
+	//管理员名称 1.0
 	@Column(name="admin_name")
 	private String adminName;
 	
@@ -34,17 +41,17 @@ public class LoginLogBean implements Serializable {
 	@Column(name="role_name")
 	private String roleName;
 	 
-	//操作时间
+	//操作时间1.0
 	@Column(name="operation_date")
-	private String operationDate;
+	private Date operationDate;
 	
-	//IP地址
+	//IP地址1.0
 	@Column(name="ip")
 	private String ip;
 	
-	//操作(登录/退出)
+	//操作(登录0/退出1)类型 1.0
 	@Column(name="operation")
-	private String operation;
+	private Integer operation;
 
 	public long getId() {
 		return id;
@@ -70,11 +77,11 @@ public class LoginLogBean implements Serializable {
 		this.roleName = roleName;
 	}
 
-	public String getOperationDate() {
+	public Date getOperationDate() {
 		return operationDate;
 	}
 
-	public void setOperationDate(String operationDate) {
+	public void setOperationDate(Date operationDate) {
 		this.operationDate = operationDate;
 	}
 
@@ -86,11 +93,11 @@ public class LoginLogBean implements Serializable {
 		this.ip = ip;
 	}
 
-	public String getOperation() {
+	public Integer  getOperation() {
 		return operation;
 	}
 
-	public void setOperation(String operation) {
+	public void setOperation(Integer  operation) {
 		this.operation = operation;
 	}
 
@@ -99,7 +106,7 @@ public class LoginLogBean implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LoginLogBean(long id, String adminName, String roleName, String operationDate, String ip, String operation) {
+	public LoginLogBean(long id, String adminName, String roleName, Date operationDate, String ip, Integer  operation) {
 		super();
 		this.id = id;
 		this.adminName = adminName;

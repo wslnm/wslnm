@@ -3,11 +3,15 @@ package com.wys.work.beans;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 /**
  * 操作日志
  * @author liyiduo
@@ -24,25 +28,28 @@ public class OperationLogBean implements Serializable {
 	
 	//id
 	@Id
+	@Column
+	@GenericGenerator(name="hibernate.id",strategy="identity")
+	@GeneratedValue(generator="hibernate.id")
 	private long id;
 	
-	//管理员名称
+	//管理员名称1.0
 	@Column(name="admin_name")
 	private String adminName;
 		
-	//角色名称
+	//角色名称1.0
 	@Column(name="role_name")	
-	private String roleName;
+	private Integer roleName;
 	
-	//操作时间
+	//操作时间1.0
 	@Column(name="operation_date")	
-	private String operationDate;
+	private Date operationDate;
 	
-	//系统模块
+	//系统模块1.0
 	@Column(name="system_mod")
-	private String systemMod;
+	private Integer systemMod;
 		
-	//具体操作
+	//具体操作1.0
 	@Column(name="operation")	
 	private String operation;
 
@@ -62,27 +69,27 @@ public class OperationLogBean implements Serializable {
 		this.adminName = adminName;
 	}
 
-	public String getRoleName() {
+	public Integer getRoleName() {
 		return roleName;
 	}
 
-	public void setRoleName(String roleName) {
+	public void setRoleName(Integer roleName) {
 		this.roleName = roleName;
 	}
 
-	public String getOperationDate() {
+	public Date getOperationDate() {
 		return operationDate;
 	}
 
-	public void setOperationDate(String operationDate) {
+	public void setOperationDate(Date operationDate) {
 		this.operationDate = operationDate;
 	}
 
-	public String getSystemMod() {
+	public Integer getSystemMod() {
 		return systemMod;
 	}
 
-	public void setSystemMod(String systemMod) {
+	public void setSystemMod(Integer systemMod) {
 		this.systemMod = systemMod;
 	}
 
@@ -99,7 +106,7 @@ public class OperationLogBean implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OperationLogBean(long id, String adminName, String roleName, String operationDate, String systemMod,
+	public OperationLogBean(long id, String adminName, Integer roleName, Date operationDate, Integer systemMod,
 			String operation) {
 		super();
 		this.id = id;
