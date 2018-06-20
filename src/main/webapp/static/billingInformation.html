@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="layui/css/layui.css"  media="all">
+    <script src="layui/layui.js" charset="utf-8"></script>
+</head>
+<body>
+<h1 style="text-align:center">费用明细</h1>
+<!-- 日期查询  到时候可以使用鼠标点击事件监听-->
+
+<div class="layui-inline">
+    <label class="layui-form-label">选择日期</label>
+    <div class="layui-input-inline">
+        <input type="text" class="layui-input" id="test1" placeholder="yyyy-MM-dd">
+    </div>
+</div>
+<!--表单页面展示 -->
+<table class="layui-table" lay-size="lg">
+    <colgroup>
+        <col width="100">
+        <col width="100">
+        <col width="100">
+        <col width="100">
+        <col>
+    </colgroup>
+    <thead>
+    <tr>
+        <th>资金账户</th>
+        <th>用户</th>
+        <th>费用</th>
+
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>AntDesign@example.com </td>
+       <td>用户A</td>
+        <td>200</td>
+        <td><a href="detailsOfCharges.html" class="layui-btn layui-btn-normal layui-btn-radius">查看详细</a></td>
+    </tr>
+    <tr>
+        <td>AntDesign@example.com </td>
+        <td>用户A</td>
+        <td>200</td>
+        <td><a href="detailsOfCharges.html" class="layui-btn layui-btn-normal layui-btn-radius">查看详细</a></td>
+    </tr>
+    <tr>
+        <td>AntDesign@example.com </td>
+        <td>用户A</td>
+        <td>200</td>
+        <td><a href="detailsOfCharges.html" class="layui-btn layui-btn-normal layui-btn-radius">查看详细</a></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<!-- 分页组件-->
+<div id="demo1" style="position: relative;left: 35%"></div>
+
+<!-- 返回按钮-->
+<br/>
+<br/>
+<button class="layui-btn layui-btn-normal layui-btn-radius" style="position: relative ; left: 40% ;width: 300px" onclick="window.location.href='frontEndUserSystem.html'">返回</button>
+</body>
+<script>
+    //分页的 JS内容
+    layui.use(['laypage', 'layer'], function(){
+        var laypage = layui.laypage
+                ,layer = layui.layer;
+
+        //总页数大于页码总数
+        laypage.render({
+            elem: 'demo1'
+            ,count: 100 //数据总数
+            ,jump: function(obj){
+                console.log(obj)
+            }
+        });
+    });
+
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+
+        //常规用法
+        laydate.render({
+            elem: '#test1'
+        })
+    });
+</script>
+</html>
