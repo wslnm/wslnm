@@ -14,7 +14,7 @@ import com.wys.work.adminmag.mapper.AdminMapper;
 import com.wys.work.adminmag.queryrepository.IAdminQueryRepository;
 
 /**
- * @author Administrator
+ * @author yangyong
  * @version 1.0
  * @created 14-����-2018 13:07:12
  */
