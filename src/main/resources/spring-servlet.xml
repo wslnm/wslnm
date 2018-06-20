@@ -30,11 +30,7 @@
 	<!-- 声明类型转换工厂，并向其中注册“我们自己的转换器” -->
 	<bean id="conversionService"
 		class="org.springframework.context.support.ConversionServiceFactoryBean">
-		<property name="converters">
-			<set>
-				<bean class="com/yangsir/project/convertor/GlobalUtilDateConverter.java" />
-			</set>
-		</property>
+		
 	</bean>
 	
 	<!-- 文件上传解析器 -->

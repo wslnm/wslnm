@@ -6,7 +6,7 @@
 1、分类的作用，避免Sql语句重复
 2、就是与我们JAVA接口关联
  -->
-<mapper namespace="com.wys.work.tariffmag.mapper.TariffMapper">
+<mapper namespace="com.wys.work.businessbillmag.mapper.BusinessbillMapper">
 	
 	<resultMap type="AccountingBillMonthBean" id="accMap">
 		<id property="id" column="id" javaType="long"/>

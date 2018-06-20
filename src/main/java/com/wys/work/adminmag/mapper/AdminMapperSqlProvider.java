@@ -31,8 +31,9 @@ public class AdminMapperSqlProvider {
 		return sb.toString();
 	}
 	
-	public Long findAdmins2Count(Map<String, Object> map) {
+	public String findAdmins2Count(Map<String, Object> map) {
 		Map params = (Map) map.get("parmas");
+		Pager pager=(Pager) map.get("pager");
 		StringBuilder sb = new StringBuilder("SELECT count(*) FROM t_admin where 1=1 ");
 		String adminName = params.get("adminName").toString();
 		if(StringUtils.hasLength(adminName)) {
@@ -46,9 +47,9 @@ public class AdminMapperSqlProvider {
 		if(StringUtils.hasLength(adminTel)) {
 			sb.append("and admin_tel like CONCAT('"+adminTel+"','%') ");
 		}
-		Long abc = Integer.parseInt(sb.toString())+0l;
 		
-		return abc;
+		
+		return sb.toString();
 	}
 	
 	

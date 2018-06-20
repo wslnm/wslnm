@@ -20,14 +20,15 @@
 	</context-param>
 	
 	<!-- 配置字符集处理过滤器 -->
-	<filter>
+	<!-- <filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>com.wys.work.filters.EncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>utf-8</param-value>
 		</init-param>
-	</filter>
+	</filter> -->
+	
 	
 	<!-- 配置延迟加载过滤器 -->
 	<filter>
@@ -43,10 +44,12 @@
 	</filter>
 
 	<!-- 配置DELETE表单内容过滤器：将DELETE流传输的数据，转移到消息体中去 -->
+	<!--  
 	<filter>
 		<filter-name>httpDeleteFormContentFilter</filter-name>
 		<filter-class>com.wys.work.filters.HttpDeleteFormContentFilter</filter-class>
 	</filter>
+	-->
 	
 	<!-- 配置Form表单支持PUT,DELETE提交方式的过滤器 -->
 	<filter>
@@ -54,10 +57,12 @@
 		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
 	</filter>
 	
+	<!--  
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<servlet-name>dispatcherServlet</servlet-name>
 	</filter-mapping>
+	-->
 
 	<filter-mapping>
 		<filter-name>openEntityManagerInViewFilter</filter-name>
@@ -74,11 +79,12 @@
 		<servlet-name>dispatcherServlet</servlet-name>
 	</filter-mapping>
 
+	<!-- 
 	<filter-mapping>
 		<filter-name>httpDeleteFormContentFilter</filter-name>
 		<servlet-name>dispatcherServlet</servlet-name>
 	</filter-mapping>
-	 
+	  -->
 
 	<!-- 监听器启动spring容器 -->
 	<listener>
