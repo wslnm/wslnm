@@ -47,7 +47,7 @@ public class AdminMapperSqlProvider {
 		if(StringUtils.hasLength(adminTel)) {
 			sb.append("and admin_tel like CONCAT('"+adminTel+"','%') ");
 		}
-		
+		          
 		
 		return sb.toString();
 	}
