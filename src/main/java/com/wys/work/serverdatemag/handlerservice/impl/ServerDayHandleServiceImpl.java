@@ -26,7 +26,7 @@ public class ServerDayHandleServiceImpl implements IServerDayHandleService {
 	 * @param serverDay
 	 */
 	public void deleteServerDay(ServerDayBean serverDay){
-
+		serverDayHandleRepository.delete(serverDay);
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class ServerDayHandleServiceImpl implements IServerDayHandleService {
 	 * @param serverDay
 	 */
 	public void updateServerDay(ServerDayBean serverDay){
-
+		serverDayHandleRepository.saveAndFlush(serverDay);
 	}
 
 }
