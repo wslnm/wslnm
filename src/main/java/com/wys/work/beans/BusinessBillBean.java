@@ -37,6 +37,12 @@ public class BusinessBillBean implements Serializable {
 	@Column(name="business_bill_os_acc",length=20)
 	private String businessBillOsAcc;
 	
+	//OS账号(业务账号)
+	
+	@Column(name="business_bill_os_acc",length=20)
+	private String businessBillUserAcc;
+	
+	
 	//服务器信息
 	
 	@Column(name="business_bill_server",length=20)
