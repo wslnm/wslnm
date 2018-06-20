@@ -1,6 +1,11 @@
 package com.wys.work.accountingbillmag.handleservice.impl;
 
 import com.wys.work.beans.AccountingBillMonthBean;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.accountingbillmag.handlerepository.IAcountingBillMonthRepository;
 import com.wys.work.accountingbillmag.handleservice.IAcccountingBillHandleMonthService;
 
@@ -10,24 +15,19 @@ import com.wys.work.accountingbillmag.handleservice.IAcccountingBillHandleMonthS
  * @version 1.0
  * @created 14-����-2018 13:07:11
  */
+@Service
 public class AccountingBillHandleMonthServiceImpl implements IAcccountingBillHandleMonthService {
 
-	public IAcountingBillMonthRepository m_IAcountingBillRepository;
+	@Resource
+	public IAcountingBillMonthRepository acountingBillRepositoryImpl;
 
-	public AccountingBillHandleMonthServiceImpl(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
 
 	/**
 	 * 
 	 * @param accounting
 	 */
 	public void deleteAccountingBillMonth(AccountingBillMonthBean accounting){
-
+		acountingBillRepositoryImpl.delete(accounting);
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class AccountingBillHandleMonthServiceImpl implements IAcccountingBillHan
 	 * @param accounting
 	 */
 	public void saveAccountingBillMonth(AccountingBillMonthBean accounting){
-
+		acountingBillRepositoryImpl.save(accounting);
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class AccountingBillHandleMonthServiceImpl implements IAcccountingBillHan
 	 * @param accounting
 	 */
 	public void updateAccountingBillMonth(AccountingBillMonthBean accounting){
-
+		acountingBillRepositoryImpl.saveAndFlush(accounting);
 	}
 
 }

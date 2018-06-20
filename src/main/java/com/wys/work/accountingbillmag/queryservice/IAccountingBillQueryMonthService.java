@@ -15,6 +15,6 @@ public interface IAccountingBillQueryMonthService {
 	 * 
 	 * @param map
 	 */
-	public Pager findAcccountingBill2Pager(Map map,Pager pager);
+	public Pager findAcccountingBill2Pager(Map map);
 
 }

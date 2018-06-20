@@ -1,5 +1,8 @@
 package com.wys.work.accountingbillmag.handlerepository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
 import com.wys.work.beans.AccountingBillMonthBean;
 
 /**
@@ -7,24 +10,7 @@ import com.wys.work.beans.AccountingBillMonthBean;
  * @version 1.0
  * @created 14-����-2018 13:07:13
  */
-public interface IAcountingBillMonthRepository {
+public interface IAcountingBillMonthRepository extends JpaRepository<AccountingBillMonthBean, Long>,JpaSpecificationExecutor<AccountingBillMonthBean>{
 
-	/**
-	 * 
-	 * @param accounting
-	 */
-	public void deleteAccountingMonth(AccountingBillMonthBean accounting);
-
-	/**
-	 * 
-	 * @param accounting
-	 */
-	public void saveAccountingMonth(AccountingBillMonthBean accounting);
-
-	/**
-	 * 
-	 * @param accounting
-	 */
-	public void updateAccountingMonth(AccountingBillMonthBean accounting);
 
 }
