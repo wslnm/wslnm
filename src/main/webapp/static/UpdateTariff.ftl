@@ -71,33 +71,28 @@
     </ul>
 </div>
 
-<div style="width: 1400px;height:120px;text-align: center" >
-    <h1 style="margin-top: 80px;font-size: xx-large">资费管理系统</h1>
+<header class="htmleaf-header">
+    <h1>资费修改</h1>
+    <div class="htmleaf-links"></div>
+</header>
+<div class="neirong" style="margin-left: 600px;margin-top: 40px;color: #0044cc">
+    资费名称：<input type="text"><br><br>
+    资费类型：<select >
+    <option value="year">包年</option>
+    <option value="month">包月</option>
+    <option value="day">记时</option>
+</select><br><br>
+    基本时长：<input type="text"><br><br>
+    基本费用：<input type="text" placeholder="资费类型包月时填写"><br><br>
+    单位费用：<input type="text" placeholder="资费类型“记时”时填写"><br><br>
+    资费说明信息：<textarea role="3" cols="10"></textarea><br><br>
+    资费状态：暂停<br><br>
+
+
+    <button class="layui-btn layui-btn-normal">确认修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="layui-btn layui-btn-normal">返回</button>
 </div>
 
-<div class="layui-btn-group">
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button class="layui-btn layui-btn-normal layui-btn-radius" style="height: 35px">开通资费</button>
-<button class="layui-btn layui-btn-warm layui-btn-radius" style="height: 35px">暂停资费</button>
-
-<div style="padding: 5px; background: #eee;">
-    <table style="width: 100%; height: 100%">
-        <thead>
-        <tr>
-            <th>资费名称</th>
-            <th>资费类型</th>
-            <th>基本时长</th>
-            <th>基本费用</th>
-            <th>单位费用</th>
-            <th>资费说明</th>
-            <th>资费状态</th>
-        </tr>
-        </thead>
-    </table>
-</div>
 </body>
 </html>

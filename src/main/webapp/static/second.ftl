@@ -72,32 +72,23 @@
 </div>
 
 <div style="width: 1400px;height:120px;text-align: center" >
-    <h1 style="margin-top: 80px;font-size: xx-large">资费管理系统</h1>
+<h1 style="margin-top: 80px;font-size: xx-large">账单查询系统(年)</h1>
 </div>
 
-<div class="layui-btn-group">
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
-    <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+<div style="width: 1400px;height:120px;text-align: center">
+    <h3 style="margin-top: 50px;font-size: large">
+        账务账号：
+        <input type="text" placeholder="请输入" >
+    </h3>
 </div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button class="layui-btn layui-btn-normal layui-btn-radius" style="height: 35px">开通资费</button>
-<button class="layui-btn layui-btn-warm layui-btn-radius" style="height: 35px">暂停资费</button>
 
-<div style="padding: 5px; background: #eee;">
-    <table style="width: 100%; height: 100%">
-        <thead>
-        <tr>
-            <th>资费名称</th>
-            <th>资费类型</th>
-            <th>基本时长</th>
-            <th>基本费用</th>
-            <th>单位费用</th>
-            <th>资费说明</th>
-            <th>资费状态</th>
-        </tr>
-        </thead>
-    </table>
+<div style="width: 1400px;height:120px;text-align: center">
+    <button class="layui-btn layui-btn-normal layui-btn-radius" style="width: 200px">以月份为单位查询</button>
 </div>
+
+<div style="width: 1400px;height:120px;text-align: center">
+    <button class="layui-btn layui-btn-normal layui-btn-radius" style="width: 200px">以年为单位查询</button>
+</div>
+
 </body>
 </html>
