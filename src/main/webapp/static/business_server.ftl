@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head lang="en"> 
     <meta charset="UTF-8">
     <title>业务账号对应服务器信息</title>
     <meta name="renderer" content="webkit">

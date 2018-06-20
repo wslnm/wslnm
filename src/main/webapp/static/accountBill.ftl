@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/nav.css">
 	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
 	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
-
+ 
 </head>
 <body>
 	<div class="nav">
