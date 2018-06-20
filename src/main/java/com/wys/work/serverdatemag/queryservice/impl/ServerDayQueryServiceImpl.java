@@ -2,6 +2,10 @@ package com.wys.work.serverdatemag.queryservice.impl;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.beans.Pager;
 import com.wys.work.serverdatemag.queryservice.IServerDayQueryService;
 import com.wys.work.serverdatemag.queryrepository.IServerDayQueryRepository;
@@ -11,17 +15,13 @@ import com.wys.work.serverdatemag.queryrepository.IServerDayQueryRepository;
  * @version 1.0
  * @created 14-����-2018 13:07:16
  */
+@Service
 public class ServerDayQueryServiceImpl implements IServerDayQueryService {
 
-	public IServerDayQueryRepository m_IServerDayQueryRepository;
+	@Resource
+	public IServerDayQueryRepository serverDayQueryRepositoryImpl;
 
-	public ServerDayQueryServiceImpl(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
+	
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class ServerDayQueryServiceImpl implements IServerDayQueryService {
 	 * @param parmas
 	 */
 	public Pager findServerDay2Pager(Pager pager, Map parmas){
-		return null;
+		return serverDayQueryRepositoryImpl.findServerDay2Pager(pager, parmas);
 	}
 
 }

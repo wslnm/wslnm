@@ -15,14 +15,14 @@ public interface IAdminHandleService {
 	 */
 	public void deleteAdmin(AdminBean admin);
 
-	/**
+	/** 
 	 * 
 	 * @param admin
 	 */
 	public void saveAdmin(AdminBean admin);
 
 	/**
-	 * 
+	 * 修改管理员信息
 	 * @param admin
 	 */
 	public void updateAdmin(AdminBean admin);

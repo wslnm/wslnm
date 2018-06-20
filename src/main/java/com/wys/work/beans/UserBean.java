@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.OptimisticLockType;
-import org.hibernate.annotations.OptimisticLocking;
 
 /**
  * 账务账户（用户）表
@@ -21,7 +19,6 @@ import org.hibernate.annotations.OptimisticLocking;
  */
 @Entity
 @Table(name="t_user")
-@OptimisticLocking(type=OptimisticLockType.VERSION)
 public class UserBean implements Serializable {
 
 	
@@ -33,31 +30,31 @@ public class UserBean implements Serializable {
 	@GeneratedValue(generator="hibernate.id")
 	private long id;
 	
-	@Column(name="user_acc",length=20)
+	@Column(name="user_acc")
 	private String userAcc;//账务账号
 	
-	@Column(name="user_pwd",length=32)
+	@Column(name="user_pwd")
 	private String userPwd;//账务密码
 	
-	@Column(name="user_name",length=20)
+	@Column(name="user_name")
 	private String userName;//真实姓名
 	
-	@Column(name="user_gender",length=11)
-	private int userGender;//性别
+	@Column(name="user_gender")
+	private int userGender;//性别 
 	
-	@Column(name="user_tel",length=13)
+	@Column(name="user_tel")
 	private String userTel;//联系电话
 	
-	@Column(name="user_address",length=100)
+	@Column(name="user_address")
 	private String userAddress;//家庭住址
 	
-	@Column(name="user_idcard",length=20)
+	@Column(name="user_idcard")
 	private String userIdcard;//身份证
 	
-	@Column(name="user_zipcode",length=11)
+	@Column(name="user_zipcode")
 	private int userZipcode;//邮编
 	
-	@Column(name="user_qq",length=11)
+	@Column(name="user_qq")
 	private int userQq;//qq
 	
 	public UserBean() {
@@ -65,10 +62,10 @@ public class UserBean implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserBean(long id, String userAcc, String userPwd, String userName, int userGender, String userTel,
-			String userAddress, String userIdcard, int userZipcode, int userQq) {
+
+	public UserBean(String userAcc, String userPwd, String userName, int userGender, String userTel, String userAddress,
+			String userIdcard, int userZipcode, int userQq) {
 		super();
-		this.id = id;
 		this.userAcc = userAcc;
 		this.userPwd = userPwd;
 		this.userName = userName;

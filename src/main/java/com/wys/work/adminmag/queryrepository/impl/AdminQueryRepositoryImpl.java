@@ -31,10 +31,22 @@ public class AdminQueryRepositoryImpl implements IAdminQueryRepository {
 		// TODO Auto-generated method stub
 		Long a = am.findAdmin2Count(parmas);
 		int totalRows = a.intValue();
-		List<AdminBean> datas = am.findAdmin2List(parmas);
+		List<AdminBean> datas = am.findAdmin2List(pager,parmas);
 		pager.setDatas(datas);
 		pager.setTotalRows(totalRows);
 		return pager;
+	}
+
+	@Override
+	public AdminBean findAdminById(Long id) {
+		// TODO Auto-generated method stub
+		return am.findAdminById(id);
+	}
+
+	@Override
+	public AdminBean login(String adminAcc, String adminPwd) {
+		// TODO Auto-generated method stub
+		return am.login(adminAcc, adminPwd);
 	}
 
 }
