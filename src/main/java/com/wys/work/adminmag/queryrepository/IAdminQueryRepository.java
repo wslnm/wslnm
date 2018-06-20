@@ -6,7 +6,7 @@ import com.wys.work.beans.AdminBean;
 import com.wys.work.beans.Pager;
 
 /**
- * @author Administrator
+ * @author yangyong
  * @version 1.0
  * @created 14-����-2018 13:07:13
  */
