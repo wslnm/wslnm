@@ -138,6 +138,10 @@
 		<url-pattern>/druid/*</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.ftl</url-pattern>
+	</servlet-mapping>
 	
 	
 </web-app>
