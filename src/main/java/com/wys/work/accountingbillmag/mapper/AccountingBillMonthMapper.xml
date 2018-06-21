@@ -7,7 +7,7 @@
 2、就是与我们JAVA接口关联
  -->
 <mapper namespace="com.wys.work.accountingbillmag.mapper.AccountingBillMonthMapper">
-	  
+	   
 	<resultMap type="AccountingBillMonthBean" id="accMap">
 		<id property="id" column="id" javaType="long"/>
 		<result property="accountingBillCost" column="accounting_bill_cost" javaType="int"/>
