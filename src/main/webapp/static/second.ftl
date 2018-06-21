@@ -72,11 +72,11 @@
 </div>
 
 <div style="width: 1400px;height:120px;text-align: center" >
-<h1 style="margin-top: 80px;font-size: xx-large">账单查询系统(年)</h1>
+<h1 style="margin-top: 80px;font-size: xx-large;color: black">账单查询系统(年)</h1>
 </div>
 
 <div style="width: 1400px;height:120px;text-align: center">
-    <h3 style="margin-top: 50px;font-size: large">
+    <h3 style="margin-top: 50px;font-size: large;color: black">
         账务账号：
         <input type="text" placeholder="请输入" >
     </h3>
