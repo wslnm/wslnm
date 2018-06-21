@@ -45,4 +45,10 @@ public class ServerDayHandleServiceImpl implements IServerDayHandleService {
 		serverDayHandleRepository.saveAndFlush(serverDay);
 	}
 
+	@Override
+	public void deleteAllserverDay() {
+		// TODO Auto-generated method stub
+		serverDayHandleRepository.deleteAll();
+	}
+
 }

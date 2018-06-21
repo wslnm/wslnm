@@ -14,6 +14,9 @@ public interface IServerDayHandleService {
 	 * @param serverDay
 	 */
 	public void deleteServerDay(ServerDayBean serverDay);
+	
+
+	public void deleteAllserverDay();
 
 	/**
 	 * 
