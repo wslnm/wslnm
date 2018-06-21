@@ -3,6 +3,7 @@ package com.wys.work.serverdatemag.queryservice;
 import java.util.Map;
 
 import com.wys.work.beans.Pager;
+import com.wys.work.beans.ServerYearBean;
 
 /**
  * @author Administrator
@@ -17,5 +18,7 @@ public interface IServerYearQueryService {
 	 * @param parmas
 	 */
 	public Pager findServerYear2Pgaer(Pager pager, Map parmas);
+	
+	public ServerYearBean findServerYearByYear(int year);
 
 }

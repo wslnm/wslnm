@@ -1,8 +1,10 @@
 package com.wys.work.serverdatemag.queryrepository;
 
+import java.util.List;
 import java.util.Map;
 
 import com.wys.work.beans.Pager;
+import com.wys.work.beans.ServerMonthBean;
 
 /**
  * @author Administrator
@@ -17,5 +19,11 @@ public interface IServerMonthQueryRepository {
 	 * @param parmas
 	 */
 	public Pager findServerMonth2Pager(Pager pager, Map parmas);
+	
+	public ServerMonthBean findServerMonthByMonth(int month);
+	
+	public List<ServerMonthBean> findAllServerMonth();
+	
+	public int findServerYearTotalTimeByYear(int year);
 
 }

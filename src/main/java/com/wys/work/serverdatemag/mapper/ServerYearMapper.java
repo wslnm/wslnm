@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 
 import com.wys.work.beans.Pager;
@@ -39,4 +40,14 @@ public interface ServerYearMapper {
 	@SelectProvider(type=ServerYearMapperSqlProvider.class,method="findServerYear2List")
 	public List<ServerYearBean> findServerYear2List(@Param("pager")Pager pager, @Param("params")Map params);
 
+	
+	@Results({
+		@Result(id=true,property="id",column="id"),
+		@Result(property="year",column="year"),
+		@Result(property="totalTime",column="tatol_time"),
+		@Result(property="name",column="service_name"),
+		@Result(property="acc",column="user_acc")
+	})
+	@Select(value= {"select * from t_server_year where year= #{year}"})
+	public ServerYearBean findServerYearByYear(@Param("year")int year);
 }

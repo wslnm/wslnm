@@ -1,8 +1,10 @@
 package com.wys.work.serverdatemag.queryrepository;
 
+import java.util.List;
 import java.util.Map;
 
 import com.wys.work.beans.Pager;
+import com.wys.work.beans.ServerDayBean;
 
 /**
  * @author Administrator
@@ -18,4 +20,9 @@ public interface IServerDayQueryRepository {
 	 */
 	public Pager findServerDay2Pager(Pager pager, Map params);
 
+	public ServerDayBean findServerDayByDay(int day);
+	
+	public List<ServerDayBean> findAllServerDay();
+	
+	public int findServerMonthTotalTimeByMonth(int month,int year);
 }

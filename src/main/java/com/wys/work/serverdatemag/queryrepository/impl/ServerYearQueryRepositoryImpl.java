@@ -37,4 +37,11 @@ public class ServerYearQueryRepositoryImpl implements IServerYearQueryRepository
 		return pager;
 	}
 
+
+	@Override
+	public ServerYearBean findServerYearByYear(int year) {
+		// TODO Auto-generated method stub
+		return serverYearMapper.findServerYearByYear(year);
+	}
+
 }

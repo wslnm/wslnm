@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wys.work.beans.Pager;
 import com.wys.work.beans.ServerDayBean;
+import com.wys.work.beans.ServerMonthBean;
 import com.wys.work.serverdatemag.queryrepository.IServerDayQueryRepository;
 import com.wys.work.serverdatemag.mapper.ServerDayMapper;
 
@@ -37,6 +38,32 @@ public class ServerDayQueryRepositoryImpl implements IServerDayQueryRepository {
 		List<ServerDayBean> list=serverDayMapper.findServerDay2List(pager, params);
 		pager.setDatas(list);
 		return pager;
+	}
+
+
+	@Override
+	public ServerDayBean findServerDayByDay(int day) {
+		// TODO Auto-generated method stub
+		return serverDayMapper.findServerDayByDay(day);
+	}
+
+
+	@Override
+	public List<ServerDayBean> findAllServerDay() {
+		// TODO Auto-generated method stub
+		return serverDayMapper.findAllServerDay();
+	}
+
+
+	@Override
+	public int findServerMonthTotalTimeByMonth(int month, int year) {
+		// TODO Auto-generated method stub
+		List<ServerDayBean> list=serverDayMapper.findServerMonthTotalTimeByMonth(month, year);
+		int totalTimeMonth=0;
+		for (ServerDayBean serverDayBean : list) {
+			totalTimeMonth+=serverDayBean.getTotalTime();
+		}
+		return totalTimeMonth;
 	}
 
 }

@@ -37,4 +37,27 @@ public class ServerMonthQueryRepositoryImpl implements IServerMonthQueryReposito
 		return pager;
 	}
 
+	@Override
+	public ServerMonthBean findServerMonthByMonth(int month) {
+		// TODO Auto-generated method stub
+		return serverMonthMapper.findServerMonthByMonth(month);
+	}
+
+	@Override
+	public List<ServerMonthBean> findAllServerMonth() {
+		// TODO Auto-generated method stub
+		return serverMonthMapper.findAllServerMonth();
+	}
+
+	@Override
+	public int findServerYearTotalTimeByYear(int year) {
+		// TODO Auto-generated method stub
+		List<ServerMonthBean> list=serverMonthMapper.findServerYearTotalTimeByYear(year);
+		int totalTimeYear=0;
+		for (ServerMonthBean serverMonthBean : list) {
+			totalTimeYear+=serverMonthBean.getTotalTime();
+		}
+		return totalTimeYear;
+	}
+
 }

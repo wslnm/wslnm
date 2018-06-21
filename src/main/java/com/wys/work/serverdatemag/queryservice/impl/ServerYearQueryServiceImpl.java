@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.wys.work.beans.Pager;
+import com.wys.work.beans.ServerYearBean;
 import com.wys.work.serverdatemag.queryservice.IServerYearQueryService;
 import com.wys.work.serverdatemag.queryrepository.IServerYearQueryRepository;
 
@@ -30,6 +31,14 @@ public class ServerYearQueryServiceImpl implements IServerYearQueryService {
 	 */
 	public Pager findServerYear2Pgaer(Pager pager, Map parmas){
 		return serverYearQueryRepositoryImpl.findServerYear2Pager(pager, parmas);
+	}
+
+
+
+	@Override
+	public ServerYearBean findServerYearByYear(int year) {
+		// TODO Auto-generated method stub
+		return serverYearQueryRepositoryImpl.findServerYearByYear(year);
 	}
 
 }
