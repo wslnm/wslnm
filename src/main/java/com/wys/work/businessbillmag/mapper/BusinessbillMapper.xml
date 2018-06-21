@@ -12,7 +12,7 @@
 		<id property="id" column="id" javaType="long"/>
 		<result property="businessBillOsAcc" column="business_bill_os_acc" javaType="string"/>
 		<result property="businessBillUserAcc" column="business_bill_user_acc" javaType="string"/>
-		<result property="businessBillServer" column="business_bill_server" javaType="int"/>
+		<result property="businessBillServer" column="business_bill_server" javaType="string"/>
 		<result property="businessBillDuration" column="business_bill_duration" javaType="int"/>
 		<result property="businessBillCost" column="business_bill_cost" javaType="int"/>
 		<result property="businessBillTariffPackage" column="business_bill_tariff_package" javaType="string"/>

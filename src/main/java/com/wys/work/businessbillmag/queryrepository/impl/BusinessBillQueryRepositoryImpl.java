@@ -21,7 +21,7 @@ import com.wys.work.businessbillmag.mapper.BusinessbillMapper;
 public class BusinessBillQueryRepositoryImpl implements IBusinessBillQueryRepository {
 
 	@Resource
-	public BusinessbillMapper businessMapper;
+	public BusinessbillMapper businessBillMapper;
 
 
 	/**
@@ -33,10 +33,10 @@ public class BusinessBillQueryRepositoryImpl implements IBusinessBillQueryReposi
 		
 		map.put("index", pager.getIndex());
 		map.put("rows", pager.getRows());
-		int rows = businessMapper.findBusiness2Count(map);
+		int rows = businessBillMapper.findBusiness2Count(map);
 		pager.setTotalRows(rows);
 		
-		List<AccountingBillMonthBean> list = businessMapper.findBusiness2List(map);
+		List<AccountingBillMonthBean> list = businessBillMapper.findBusiness2List(map);
 		pager.setDatas(list);
 		return pager;
 	}
