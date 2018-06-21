@@ -9,6 +9,9 @@
 	<link rel="stylesheet" type="text/css" href="css/nav.css">
 	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
 	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
+	<script type="text/javascript"
+	src="../static/js/jQuery-2.2.2-min.js?version=20180522" charset="utf-8"></script>
+	
 
 </head>
 <body>
@@ -76,19 +79,19 @@
 		<div class="htmleaf-links"></div>
 	</header>
 	<div class="neirong" style="margin-left: 600px;margin-top: 40px;color: #0044cc">
-		姓名：<input type="text"><br><br>
-		性别：<input type="text"><br><br>
+		姓名：<input type="text" id="name"><br><br>
+		性别：<input type="text" id="gender"><br><br>
 		身份证号：<select >
 					<option value="5113254949499">456651556153342</option>
 				</select><br><br>
-		账号：<input type="text"><br><br>
-		密码：<input type="text"><br><br>
-		电话：<input type="text"><br><br>
-		通讯地址：<input type="text"><br><br>
-		邮编：<input type="text"><br><br>
-		QQ号码：<input type="text"><br><br>
+		账号：<input type="text" id="acc"><br><br>
+		密码：<input type="text" id="pwd"><br><br>
+		电话：<input type="text" id="tel"><br><br>
+		通讯地址：<input type="text" id="address"><br><br>
+		邮编：<input type="text" id="zipcode"><br><br>
+		QQ号码：<input type="text" id="qq"><br><br>
 
-		<button class="layui-btn layui-btn-normal">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="layui-btn layui-btn-normal" id="tianjia">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<button class="layui-btn layui-btn-normal">返回</button>
 	</div>
@@ -139,6 +142,32 @@
 			$('.demoTable .layui-btn').on('click', function(){
 				var type = $(this).data('type');
 				active[type] ? active[type].call(this) : '';
+			});
+		});
+		
+		
+		//获取前台添加数据
+		$('#tianjia').click(function(){
+			var url = "user/0";
+			var data = {
+					userName: $("#name").val(),
+					userGender: $("#gender").val(),
+					userAcc: $("#acc").val(),
+					userPwd: $("#pwd").val(),
+					userTel: $("#tel").val(),
+					userAddress: $("#address").val(),
+					userZipcode: $("#zipcode").val(),
+					userQq: $("#qq").val()
+					
+			};
+			
+			$.ajax({
+				type:"POST",
+				url:url,
+				data:data,
+				success: function(messagerBean){
+					console.log(messagerBean);
+				}
 			});
 		});
 	</script>
