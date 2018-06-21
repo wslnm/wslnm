@@ -16,7 +16,7 @@ import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 /**
  * 管理员表，对应数据库中的表格t_admin
- * @author 西柚汁不念诗
+ * @author yangyong
  *用来定义系统中管理员们的属性
  */
 @Entity
