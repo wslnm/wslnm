@@ -21,22 +21,11 @@ import com.wys.work.beans.Pager;
  * @version 1.0
  * 操作日志控制层
  */
-@RestController
-@RequestMapping("/operationlog")
+
 public class OperationLogController {
 
-	@Resource
+
 	public IOperationLogQueryService operationLogQueryServiceImpl;
 
-	@RequestMapping(value="/get",method= {RequestMethod.GET},produces = { "application/json;charset=utf-8" })
-	public Pager findOperationLog2Pager(Pager pager,String admin,Integer role,Integer mod,Date startTime,Date endTime) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("admin", admin);
-		params.put("role", role);//角色名称(等级)
-		params.put("mod", mod);//模块
-		params.put("startTime", startTime);
-		params.put("endTime", endTime);
-		operationLogQueryServiceImpl.findOperationLogByParams2Pager(params, pager);
-		return pager;
-	}
+
 }

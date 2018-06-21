@@ -19,20 +19,9 @@ import com.wys.work.beans.Pager;
  * @version 1.0
  * 登陆日志控制层
  */
-@RestController
-@RequestMapping("/loginlog")
+//@RestController
+//@RequestMapping("/loginlog")
 public class LoginLogController {
 
-	@Resource
-	public ILoginLogQueryService loginLogQueryServiceImpl;
 
-	@RequestMapping(value="/get",method= {RequestMethod.GET},produces = { "application/json;charset=utf-8" })
-	public Pager findLoginLog2Pager(Pager pager,String admin,Date startTime,Date endTime) {
-		Map<String, Object> params = new HashMap<>();
-		params.put("admin", admin);
-		params.put("startTime", startTime);
-		params.put("endTime", endTime);
-		loginLogQueryServiceImpl.findLoginLogByParams2Pager(params, pager);
-		return pager;
-	}
 }

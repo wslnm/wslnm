@@ -43,4 +43,5 @@ public interface OperationLogMapper {
 			@Result(property = "adminName", column = "admin_name", javaType = String.class) })
 	@SelectProvider(type = OperationLogMapperSqlProvider.class, method = "findOperationLogByParams")
 	public List<OperationLogBean> findOperationLogByParams(@Param("params")Map params);
+	
 }

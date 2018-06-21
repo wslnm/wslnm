@@ -23,11 +23,9 @@ public class LoginLogMapperSqlProvider {
 			sb.append("and admin_name like concat('"+params.get("admin")+"','%') ");
 		}
 		if (params.get("startTime")!=null) {
-			sb.append("and operation_date >= '"+params.get("startTime")+"' ");
+			sb.append("and operation_date >= '"+params.get("time")+"' ");
 		}
-		if (params.get("endTime")!=null) {
-			sb.append("and operation_date <= '"+params.get("endTime")+"' ");
-		}
+
 		
 		return sb.toString();
 	}
@@ -45,11 +43,9 @@ public class LoginLogMapperSqlProvider {
 			sb.append("and admin_name like concat('"+params.get("admin")+"','%') ");
 		}
 		if (params.get("startTime")!=null) {
-			sb.append("and operation_date > '"+params.get("startTime")+"' ");
+			sb.append("and operation_date > '"+params.get("time")+"' ");
 		}
-		if (params.get("endTime")!=null) {
-			sb.append("and operation_date < '"+params.get("endTime")+"' ");
-		}
+	
 		sb.append("limit "+params.get("index")+","+params.get("rows"));
 		return sb.toString();
 	}
