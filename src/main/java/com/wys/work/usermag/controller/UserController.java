@@ -3,12 +3,15 @@ package com.wys.work.usermag.controller;
 import com.wys.work.usermag.queryservice.IUserQueryService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.wys.work.beans.MessagerBean;
 import com.wys.work.beans.UserBean;
@@ -72,27 +75,31 @@ public class UserController {
 	 * @param userPwd
 	 * @return 用户对象
 	 */
-	@RequestMapping(value="/{userAcc}/{userPwd}",method= {RequestMethod.GET},produces = {"application/json;charset=utf-8"})
-	public MessagerBean login(@PathVariable("userAcc") String userAcc,@PathVariable("userPwd") String userPwd) {
-		MessagerBean messagerBean = new MessagerBean(true,0,"操作成功");
-		try {   
-			UserBean user = userQueryServiceImpl.login(userAcc, userPwd);
-			System.out.println(user);
-			if (user!=null) {
-				messagerBean = new MessagerBean(true,0,"操作成功");
-			} else {
-				messagerBean.setCode(-1);
-				messagerBean.setStatus(false);
-				messagerBean.setInformation("操作失败");
+	@RequestMapping(value="/login",method= {RequestMethod.GET},produces = {"application/json;charset=utf-8"})
+	public ModelAndView login(UserBean userbean) {
+		
+		ModelAndView mv = new ModelAndView();
+		
+			System.out.println("123");
+			try {
+
+				UserBean user = userQueryServiceImpl.login(userbean.getUserAcc(),userbean.getUserPwd());
+				mv.addObject("user", user);
+				if (user != null) {
+					mv.setViewName("userInfo");
+				}else {
+					mv.setViewName("LoginUser");
+				}
+				System.out.println(user);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			messagerBean.setCode(-1);
-			messagerBean.setStatus(false);
-			messagerBean.setInformation("操作失败");
-		}
-		return messagerBean;
+		
+		return mv;
 	}
 	
+	
+
 	
 
 }
