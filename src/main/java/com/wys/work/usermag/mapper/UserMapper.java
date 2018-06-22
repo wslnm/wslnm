@@ -40,9 +40,12 @@ public interface UserMapper {
 		@Result(id=true,property="id",column="id",javaType=Long.class),
 		@Result(property="userName",column="user_name",javaType=String.class),
 		@Result(property="userAcc",column="user_acc",javaType=String.class),
-		@Result(property="userPwd",column="user_pwd",javaType=String.class)
+		@Result(property="userPwd",column="user_pwd",javaType=String.class),
+		@Result(property="userTel",column="user_tel",javaType=String.class),
+		@Result(property="userIdcard",column="user_idcard",javaType=String.class),
+		@Result(property="userAddress",column="user_address",javaType=String.class)
 	})
-	@Select(value= {"select id,user_name,user_acc,user_pwd from t_user where user_acc = #{userAcc} and user_pwd = #{userPwd}"})
+	@Select(value= {"select * from t_user where user_acc = #{userAcc} and user_pwd = #{userPwd}"})
 	public UserBean login(@Param("userAcc")String userAcc,@Param("userPwd")String userPwd);
 
 }
