@@ -26,5 +26,12 @@ public interface IAdminHandleService {
 	 * @param admin
 	 */
 	public void updateAdmin(AdminBean admin);
+	
+	/**
+	 * 通过ID查询管理员
+	 * @param id
+	 * @return
+	 */
+	public AdminBean findById(Long id);
 
 }
