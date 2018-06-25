@@ -8,28 +8,46 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> -->
 	<meta name="keywords" content="Flat Dark Web Login Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
-	<link href="css/style.css" rel='stylesheet' type='text/css' />
+	<link href="/project/static/css/style.css" rel='stylesheet' type='text/css' />
 	
 	<!-- <link href='http://fonts.useso.com/css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.useso.com/css?family=Exo+2' rel='stylesheet' type='text/css'> -->
 	
 <!-- 	<script src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
-	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
-	<link rel="stylesheet" type="text/css" href="css/nav.css">
-	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="/project/static/css/htmleaf-demo.css">
+	<link rel="stylesheet" type="text/css" href="/project/static/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="/project/static/fonts/iconfont.css">
 
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
+	<link rel="stylesheet" href="/project/static/layui/css/layui.css"  media="all">
 
+<style>
 
+	.layui-field-box{
+		font-size: 10px;
+		color: pink;
+		
+	}
+	.layui-elem-field legend{
+		font-size: 5px;
+	}
+	.xg{
+		background-color: #74777b;
+		color:pink;
+	}
+
+	
+</style>
+	
 
 </head>
 <body>
+
 <div class="nav">
 	<div class="nav-top">
-		<div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="images/mini.png" ></div>
+		<div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="/project/static/images/mini.png" ></div>
 	</div>
 	<ul>
 		<li class="nav-item">
@@ -90,63 +108,92 @@
 	<div class="related" style="float: right ;width: 1300px ; height: 760px ;background-color: #74777b  ">
 		<div style="width: 800px;height: 600px;position: relative;left: 20%">
 			<h1>用户个人信息</h1>
+			
+			<form action="/project/user/update">
+			
+			<input type="hidden" name="id" id="id" value="${user.id}">
+			
 			<fieldset class="layui-elem-field" >
 				<legend>真实姓名</legend>
 				<div class="layui-field-box">
-					李老八
+					${user.userName}
+				
 				</div>
 			</fieldset>
 			<fieldset class="layui-elem-field" >
 				<legend>账务账号</legend>
 				<div class="layui-field-box">
-					1234567
+						${user.userAcc}
 				</div>
 			</fieldset>
 			<fieldset class="layui-elem-field" >
 				<legend>性别</legend>
 				<div class="layui-field-box">
-					男
+						${user.userGender}
 				</div>
 			</fieldset>
+			
 			<fieldset class="layui-elem-field" >
 				<legend>联系方式(可修改)</legend>
-				<div class="layui-field-box">
-					110
-				</div>
-			</fieldset>	<fieldset class="layui-elem-field" >
+				
+				<input class="xg" value="${user.userTel}" name="userTel">
+				
+			</fieldset>	
+			<fieldset class="layui-elem-field" >
 			<legend >家庭住址</legend>
 			<div class="layui-field-box">
-				红瓦寺
+			${user.userAddress}
 			</div>
 		</fieldset>
 			<fieldset class="layui-elem-field" >
 				<legend>身份证号码</legend>
 				<div class="layui-field-box">
-					123456789101123123
+					${user.userIdcard}	
 				</div>
 			</fieldset>
 			<fieldset class="layui-elem-field" 	>
-				<legend>邮箱</legend>
+				<legend>邮编</legend>
 				<div class="layui-field-box">
-					taijun@163.com
+				${user.userZipcode}
 				</div>
 			</fieldset>
 			<fieldset class="layui-elem-field" 	>
 				<legend>QQ</legend>
 				<div class="layui-field-box">
-					123456789
+				${user.userQq}
 				</div>
 			</fieldset>
-			<button class="layui-btn layui-btn-primary layui-btn-lg" style="width: 300px" onclick="window.location.href='frontEndUserSystem.html'">提交</button>      <button class="layui-btn layui-btn-primary layui-btn-lg" style="width: 300px" onclick="window.location.href='LoginUser.html'">返回</button>
+			<!-- 密码框 -->
+			<fieldset class="layui-elem-field" 	>
+				<legend>修改密码</legend>
+				<div class="layui-field-box">
+				<input type="password" value="	${user.userPwd}" name="userPwd">
+				</div>
+			</fieldset>
+			
 
+
+			
+			<input type="submit" id="update" value="确认修改">
+			
+			<button class="layui-btn layui-btn-warm layui-btn-radius" style="width: 300px" onclick="window.location.href='/project/static/LoginUser.ftl'">返回</button>
+			</form>
 		</div>
 
 	</div>
 
 </div>
 
-<script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
-<script type="text/javascript" src="js/nav.js"></script>
+<!-- <script src="http://cdn.bootcss.com/jquery/1.11.0/jquery.min.js" type="text/javascript"></script> -->
+<script>window.jQuery || document.write('<script src="/project/static/js/jquery-1.11.0.min.js"><\/script>')</script>
+<script type="text/javascript" src="/project/static/js/nav.js"></script>
+
+<script>
+
+
+
+
+</script>
+
 </body>
 </html>

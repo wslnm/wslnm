@@ -49,6 +49,13 @@ public class UserHandleServiceImpl implements IUserHandleService {
 		// TODO Auto-generated method stub
 		userHandleRepositorys.saveAndFlush(user);
 	}
+
+	@Override
+	public UserBean findUserById(Long id) {
+		// TODO Auto-generated method stub
+		
+		return userHandleRepositorys.findOne(id);
+	}
 	
 
 }

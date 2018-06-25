@@ -39,4 +39,10 @@ public class AdminHandleServiceImpl implements IAdminHandleService {
 		adminHandleRepository.saveAndFlush(admin);
 	}
 
+	@Override
+	public AdminBean findById(Long id) {
+		// TODO Auto-generated method stub
+		return adminHandleRepository.findOne(id);
+	}
+
 }

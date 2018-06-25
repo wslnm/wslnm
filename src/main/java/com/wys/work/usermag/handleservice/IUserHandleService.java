@@ -36,5 +36,11 @@ public interface IUserHandleService {
 	 * @return
 	 */
 	public List<UserBean> saveUserBeans(List<UserBean> userBeans);
+	
+	/**
+	 * 通过Id查询用户
+	 * @param id
+	 */
+	public UserBean findUserById(Long id);
 
 }
