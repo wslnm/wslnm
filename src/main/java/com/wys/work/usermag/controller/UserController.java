@@ -53,7 +53,7 @@ public class UserController {
 			if (userPwd != null && StringUtils.hasLength(userPwd.trim())) {
 				userBean.setUserPwd(userPwd);
 			}else {
-				userBean.setUserPwd(userBean.getUserPwd());
+				userBean.setUserPwd(userBean.getUserPwd().trim());
 			}
 			
 			userHandleServiceImpl.updateUserBean(userBean);
