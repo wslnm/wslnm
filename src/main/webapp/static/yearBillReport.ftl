@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>电信管理系统</title>
-	<meta name="renderer" content="webkit">
- 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="stylesheet" type="text/css" href="/project/static/css/htmleaf-demo.css">
 	<link rel="stylesheet" type="text/css" href="/project/static/css/nav.css">
 	<link rel="stylesheet" type="text/css" href="/project/static/fonts/iconfont.css">
@@ -16,7 +15,7 @@
 	<div class="nav">
 	        <div class="nav-top">
 	            <div id="mini" style="border-bottom:1px solid rgba(255,255,255,.1)"><img src="images/mini.png" ></div>
-	        </div>
+	        </div> 
 	        <ul>
 	            <li class="nav-item">
 	                <a href="javascript:;"><i class="my-icon nav-icon icon_1"></i><span>用户管理系统</span><i class="my-icon nav-more"></i></a>
@@ -72,78 +71,82 @@
 	        </ul>
 	    </div>
 	<div class="htmleaf-container">
-		<header class="htmleaf-header">
-			<h1>账单报表信息</h1>
-			<div class="htmleaf-links"></div>
-		</header>
-		<br/><br/>
-		<div class="layui-btn-group demoTable" style="margin-left: 240px;">
-			<button id="btnBill" class="layui-btn" data-type="getCheckData">查询年度账单报表</button>
-			<button id="btnBusiness" class="layui-btn" data-type="getCheckLength">查询具体业务报表</button>
-		</div>
-		
+
 		<div class="" style="width:auto;height:640px;margin-left: 220px;">
-			
-			<table class="layui-table" id="LAY_table_user" lay-filter="user"></table>
-				
+			<div>&nbsp;</div>
+			<div id="container" style="height: 600px">
+			</div>
+			<form action="/project/server/btnCheckYear">
+				<div align="center"><span style="font-size: 24px">年份：</span><input type="text" name="year" id="year"  placeholder="请输入年份，如2018(默认)"style="padding: 7px 15px" >
+   					 &nbsp;<input type="hidden" name="acc" id="acc" value="${acc}">
+ 		      	  	 <button class="layui-btn layui-btn-normal" id="btnCheck">查询</button>
+				</div>
+			</form>
 		</div>
 	</div>
-	<script src="/project/static/layui/layui.js" charset="utf-8"></script>
-	<script>
-		layui.use('table', function(){
-			var table = layui.table;
-			
-			//方法级渲染
-			var table1=table.render({
-				elem: '#LAY_table_user'
-				,id:  "table1"
-				,url: '/project/server/table'
-				,cols: [[
-					 {type:'checkbox', fixed: 'left'}
-				 	,{field:'userName', width:250, title: '真实姓名', sort: true}
-					,{field:'userAcc', width:250, title: '账务账号'}
-					,{field:'userIdcard', width:250, title: '身份证', sort: true}
-					,{field:'userGender', width:220, title: '性别'}
-					,{field:'userTel', title: '联系电话', width: 250},
-				]]
-				,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-    		  layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'] //自定义分页布局
-    		  //,curr: 1 
-     		 ,groups: 1 
-    		 ,first: false 
-     		 ,last: false
-      			 }
-				,height: 355
-			});
-			
-			
-		    table.on('checkbox(user)', function(obj){
-  				  console.log(obj)
-  				});
-  				
-		    var $ = layui.$, active = {
-   				  
-   			   getCheckData: function(){ //获取选中数据
-    			  var checkStatus = table.checkStatus('table1')
-    		  	 ,data = checkStatus.data;
-    		  	 window.location.href="/project/server/yearPie?acc="+data[0].userAcc+""
-   			 			 }
-   			 			 
-   			  ,getCheckLength: function(){ //获取选中
-     			  var checkStatus = table.checkStatus('table1')
-    		     ,data = checkStatus.data;
-     			  window.location.href="/project/server/yearCategory?acc="+data[0].userAcc+""
- 							   }
-					  };
-					  
-			$('.demoTable .layui-btn').on('click', function(){
- 				  var type = $(this).data('type');
-    			  active[type] ? active[type].call(this) : '';
-					  });
-		
-
-			
-		});
+	<script src="/project/static/js/layui.js" charset="utf-8"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+	<script type="text/javascript">
+		var dom = document.getElementById("container");
+		var myChart = echarts.init(dom);
+		var app = {};
+		option = null;
+		option = {
+			title : {
+				text: '年度账务账单分析报表',
+				x:'center'
+			},
+			tooltip : {
+				trigger: 'item',
+				formatter: "{a} <br/>{b} : {c} ({d}%)"
+			},
+			legend: {
+				orient: 'vertical',
+				left: 'left',
+				data: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+			},
+			series : [
+				{
+					name: 'hey,guy!',
+					type: 'pie',
+					radius : '55%',
+					center: ['50%', '60%'],
+					data:[
+						{value:${list[0].accountingBillCost}, name:'Jan'},
+						{value:${list[1].accountingBillCost}, name:'Feb'},
+						{value:${list[2].accountingBillCost}, name:'Apr'},
+						{value:${list[3].accountingBillCost}, name:'Mar'},
+						{value:${list[4].accountingBillCost}, name:'May'},
+						{value:${list[5].accountingBillCost}, name:'Jun'},
+						{value:${list[6].accountingBillCost}, name:'Jul'},
+						{value:${list[7].accountingBillCost}, name:'Aug'},
+						{value:${list[8].accountingBillCost}, name:'Sep'},
+						{value:${list[9].accountingBillCost}, name:'Oct'},
+						{value:${list[10].accountingBillCost}, name:'Nov'},
+						{value:${list[11].accountingBillCost}, name:'Dec'},
+					],
+					itemStyle: {
+						emphasis: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}
+			]
+		};
+		;
+		if (option && typeof option === "object") {
+			myChart.setOption(option, true);
+		}
 	</script>
 	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
