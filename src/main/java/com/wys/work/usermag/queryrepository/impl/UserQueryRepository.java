@@ -1,5 +1,6 @@
 package com.wys.work.usermag.queryrepository.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -24,13 +25,15 @@ public class UserQueryRepository implements IUserQueryRepository {
 	public UserMapper userMapper;
 
 
-	/**
-	 * 
-	 * @param pager
-	 * @param parmas
-	 */
+	@Override
 	public Pager findUserBean2Pager(Pager pager, Map parmas){
-		return null;
+		Long a = userMapper.findUserBean2Count(parmas);
+		int totalRows = a.intValue();
+		List<UserBean> datas = userMapper.findUserBean2List(parmas, pager);
+		pager.setDatas(datas);
+		pager.setTotalRows(totalRows);
+		
+		return pager;
 	}
 
 	@Override

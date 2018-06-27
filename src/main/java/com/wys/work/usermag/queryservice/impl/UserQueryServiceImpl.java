@@ -23,13 +23,9 @@ public class UserQueryServiceImpl implements IUserQueryService {
 	public IUserQueryRepository userQueryRepositoryImpl;
 
 
-	/**
-	 * 
-	 * @param pager
-	 * @param parmas
-	 */
+	@Override
 	public Pager findUserBean2Pager(Pager pager, Map parmas){
-		return null;
+		return userQueryRepositoryImpl.findUserBean2Pager(pager, parmas);
 	}
 
 	@Override
