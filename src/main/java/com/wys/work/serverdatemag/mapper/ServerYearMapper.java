@@ -33,7 +33,7 @@ public interface ServerYearMapper {
 	@Results({
 		@Result(id=true,property="id",column="id"),
 		@Result(property="year",column="year"),
-		@Result(property="totalTime",column="tatol_time"),
+		@Result(property="totalTime",column="total_time"),
 		@Result(property="name",column="service_name"),
 		@Result(property="acc",column="user_acc")
 	})
@@ -44,7 +44,7 @@ public interface ServerYearMapper {
 	@Results({
 		@Result(id=true,property="id",column="id"),
 		@Result(property="year",column="year"),
-		@Result(property="totalTime",column="tatol_time"),
+		@Result(property="totalTime",column="total_time"),
 		@Result(property="name",column="service_name"),
 		@Result(property="acc",column="user_acc")
 	})

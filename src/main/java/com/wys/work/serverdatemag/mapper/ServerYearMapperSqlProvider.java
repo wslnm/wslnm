@@ -2,6 +2,8 @@ package com.wys.work.serverdatemag.mapper;
 
 import java.util.Map;
 
+import org.springframework.util.StringUtils;
+
 import com.wys.work.beans.Pager;
 
 public class ServerYearMapperSqlProvider {
@@ -17,8 +19,8 @@ public class ServerYearMapperSqlProvider {
 		if(year!=0) {
 			sb.append("and year ="+year+" ");
 		}
-		if(userAcc!=null) {
-			sb.append("and user_acc ="+userAcc+" ");
+		if(!StringUtils.isEmpty(userAcc)&&userAcc!=null) {
+			sb.append("and user_acc ='"+userAcc+" '");
 		}
 		sb.append("order by id desc limit "+index+","+rows+"");
 		return sb.toString();
@@ -35,8 +37,8 @@ public class ServerYearMapperSqlProvider {
 		if(year!=0) {
 			sb.append("and year ="+year+" ");
 		}
-		if(userAcc!=null) {
-			sb.append("and user_acc ="+userAcc+" ");
+		if(!StringUtils.isEmpty(userAcc)&&userAcc!=null) {
+			sb.append("and user_acc ='"+userAcc+"' ");
 		}
 		return sb.toString();
 	}

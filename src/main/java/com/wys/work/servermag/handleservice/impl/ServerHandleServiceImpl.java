@@ -1,5 +1,9 @@
 package com.wys.work.servermag.handleservice.impl;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.wys.work.beans.ServerBean;
 import com.wys.work.servermag.handleservice.IServerHandleService;
 import com.wys.work.servermag.handlerepository.IServerHandleRepository;
@@ -9,18 +13,12 @@ import com.wys.work.servermag.handlerepository.IServerHandleRepository;
  * @version 1.0
  * @created 14-����-2018 13:07:16
  */
+@Service
 public class ServerHandleServiceImpl implements IServerHandleService {
 
-	public IServerHandleRepository m_IServerHandleRepository;
-
-	public ServerHandleServiceImpl(){
-
-	}
-
-	public void finalize() throws Throwable {
-
-	}
-
+	@Resource
+	public IServerHandleRepository serverHandleRepository;
+	
 	/**
 	 * 
 	 * @param server

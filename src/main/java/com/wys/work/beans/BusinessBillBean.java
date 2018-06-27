@@ -59,6 +59,12 @@ public class BusinessBillBean implements Serializable {
 	//资费套餐
 	@Column(name="business_bill_tariff_package",length=20)
 	private String businessBillTariffPackage;
+	
+	@Column(name="month",length=11)
+	private int month;
+	
+	@Column(name="year",length=11)
+	private int year;
 
 	public long getId() {
 		return id;
@@ -106,6 +112,35 @@ public class BusinessBillBean implements Serializable {
 
 	public void setBusinessBillTariffPackage(String businessBillTariffPackage) {
 		this.businessBillTariffPackage = businessBillTariffPackage;
+	}
+	
+
+	public String getBusinessBillUserAcc() {
+		return businessBillUserAcc;
+	}
+
+	public void setBusinessBillUserAcc(String businessBillUserAcc) {
+		this.businessBillUserAcc = businessBillUserAcc;
+	}
+
+	public int getMonth() {
+		return month;
+	}
+
+	public void setMonth(int month) {
+		this.month = month;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public BusinessBillBean() {
