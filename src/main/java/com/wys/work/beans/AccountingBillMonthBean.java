@@ -54,7 +54,13 @@ public class AccountingBillMonthBean implements Serializable{
 	@Column(name="year")
 	private int year;
 	
-	@Column(name="user_acc")
+	@Transient  
+	private UserBean user;
+	
+	@Transient  
+	private String userIdcard;
+	
+	@Transient  
 	private String userAcc;
 
 	public AccountingBillMonthBean() {
@@ -120,13 +126,41 @@ public class AccountingBillMonthBean implements Serializable{
 		this.year = year;
 	}
 
+	
+	public UserBean getUser() {
+		return user;
+	}
+
+	public void setUser(UserBean user) {
+		this.user = user;
+		this.userAcc = user.getUserAcc();
+		this.userIdcard = user.getUserIdcard();
+	}
+	
+
+	public String getUserIdcard() {
+		return userIdcard;
+	}
+
+	public void setUserIdcard(String userIdcard) {
+		this.userIdcard = userIdcard;
+	}
+
+	public String getUserAcc() {
+		return userAcc;
+	}
+
+	public void setUserAcc(String userAcc) {
+		this.userAcc = userAcc;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
 	@Override
 	public String toString() {
-		return "AccountingBillYearBean [id=" + id + ", accountingBillCost="
+		return "AccountingBillMonthBean [id=" + id + ", accountingBillCost="
 				+ accountingBillCost + ", accountingBillMonth=" + accountingBillMonth + ", accountingBillCostPayMethod="
 				+ accountingBillCostPayMethod + ", accountingBillPayStatus=" + accountingBillPayStatus + ", year="
 				+ year + "]";
