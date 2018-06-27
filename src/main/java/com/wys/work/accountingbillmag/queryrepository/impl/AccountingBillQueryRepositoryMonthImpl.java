@@ -45,4 +45,11 @@ public class AccountingBillQueryRepositoryMonthImpl implements IAccountingMonthQ
 	}
 
 
+	@Override
+	public AccountingBillMonthBean findOne(String useracc) {
+		// TODO 自动生成的方法存根
+		return accountingBillMapper.findOne(useracc);
+	}
+
+
 }

@@ -2,6 +2,7 @@ package com.wys.work.accountingbillmag.queryrepository;
 
 import java.util.Map;
 
+import com.wys.work.beans.AccountingBillMonthBean;
 import com.wys.work.beans.Pager;
 
 /**
@@ -17,4 +18,5 @@ public interface IAccountingMonthQueryRepository {
 	 */
 	public Pager findAccountingBillMonth2Pager(Map map);
 
+	public AccountingBillMonthBean findOne(String useracc);
 }

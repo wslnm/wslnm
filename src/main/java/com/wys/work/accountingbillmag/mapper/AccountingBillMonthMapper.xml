@@ -53,16 +53,16 @@
 		select count(*) from t_accounting_bill a,t_user u 
 		<where>
 			a.fk_user_id = u.id
-			<if test="idcard!=''">
+			<if test="idcard!='' and idcard!=null">
 				and u.user_name like "%"#{idcard}"%"
 			</if>
-			<if test="acc!=''">
+			<if test="acc!='' and acc!=null">
 				and u.user_acc like "%"#{acc}"%"
 			</if>
-			<if test="name!=''">
+			<if test="name!='' and name!=null">
 				and u.user_name like "%"#{name}"%"
 			</if>
-			<if test="year!=''">
+			<if test="year!='' and year!=null">
 				and a.year = #{year}
 			</if>
 		</where>
@@ -73,21 +73,26 @@
 		select * from t_accounting_bill a,t_user u 
 		<where>
 			a.fk_user_id = u.id
-			<if test="idcard!=''">
+			<if test="idcard!='' and idcard!=null">
 				and u.user_name like "%"#{idcard}"%"
 			</if>
-			<if test="acc!=''">
+			<if test="acc!='' and acc!=null">
 				and u.user_acc like "%"#{acc}"%"
 			</if>
-			<if test="name!=''">
+			<if test="name!='' and name!=null">
 				and u.user_name like "%"#{name}"%"
 			</if>
-			<if test="year!=''">
+			<if test="year!='' and year!=null">
 				and a.year = #{year}
 			</if>
 		</where>
 		limit #{index} , #{rows}
 	</select>
 	 
-	
+	<select id="findOne" parameterType="String" resultMap="accMap">
+		select * from t_accounting_bill a,t_user u 
+		<where>
+			a.fk_user_id = u.id and u.user_acc = #{useracc}
+		</where>
+	</select>
 </mapper>

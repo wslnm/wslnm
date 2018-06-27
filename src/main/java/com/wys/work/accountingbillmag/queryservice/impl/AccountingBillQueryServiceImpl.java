@@ -3,6 +3,7 @@ package com.wys.work.accountingbillmag.queryservice.impl;
 import com.wys.work.accountingbillmag.handlerepository.IAccountingBillHandleYearRepository;
 import com.wys.work.accountingbillmag.queryrepository.IAccountingMonthQueryRepository;
 import com.wys.work.accountingbillmag.queryservice.IAccountingBillQueryMonthService;
+import com.wys.work.beans.AccountingBillMonthBean;
 import com.wys.work.beans.Pager;
 
 
@@ -31,6 +32,12 @@ public class AccountingBillQueryServiceImpl implements IAccountingBillQueryMonth
 	 */
 	public Pager findAcccountingBill2Pager(Map map){
 		return accountingMonthQueryRepositoryImpl.findAccountingBillMonth2Pager(map);
+	}
+
+	@Override
+	public AccountingBillMonthBean findOne(String useracc) {
+		// TODO 自动生成的方法存根
+		return accountingMonthQueryRepositoryImpl.findOne(useracc);
 	}
 
 }

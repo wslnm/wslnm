@@ -3,6 +3,8 @@ package com.wys.work.accountingbillmag.mapper;
 import java.util.List;
 import java.util.Map;
 
+import com.wys.work.beans.AccountingBillMonthBean;
+
 
 /**
  * @author Administrator
@@ -22,5 +24,7 @@ public interface AccountingBillMonthMapper {
 	 * @param map
 	 */
 	public List findAccounting2List(Map map);
+	
+	public AccountingBillMonthBean findOne(String useracc);
 
 }
