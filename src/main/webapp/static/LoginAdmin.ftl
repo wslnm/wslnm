@@ -24,6 +24,9 @@ $(document).ready(function(c) {
 });
 
 
+
+
+
 //回车键实现登录
 
 document.onkeydown=function(event){
@@ -62,7 +65,7 @@ document.onkeydown=function(event){
 							<span style="font-size: 15px ; color: red">zhengze</span>
 							<br/>
 							<!-- 切换管理员/用户 -->
-							<a href="LoginUser.ftl" style="font-size: 15px ; color: #74777b">User</a>/<a href="/project/static/LoginAdmin.ftl" style="font-size: 15px ; color: #74777b">Admin</a>
+							<a href="../static/LoginUser.ftl" style="font-size: 15px ; color: #74777b">User</a>/<a href="../static/LoginAdmin.ftl" style="font-size: 15px ; color: #74777b">Admin</a>
 						</div>
 			<!-- 登录 -->
 	<div class="signin">
