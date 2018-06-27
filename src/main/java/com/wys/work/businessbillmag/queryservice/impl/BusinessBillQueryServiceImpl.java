@@ -2,6 +2,8 @@ package com.wys.work.businessbillmag.queryservice.impl;
 
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.wys.work.beans.Pager;
@@ -16,6 +18,7 @@ import com.wys.work.businessbillmag.queryrepository.IBusinessBillQueryRepository
 @Service
 public class BusinessBillQueryServiceImpl implements IBusinessBillQueryService {
 
+	@Resource
 	private IBusinessBillQueryRepository businessBillQueryRepositoryImpl;
 
 	/**

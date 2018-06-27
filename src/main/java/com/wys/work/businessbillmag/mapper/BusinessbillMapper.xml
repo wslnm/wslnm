@@ -33,18 +33,20 @@
 	只不过resultType需要结果集中字段名与对象的属性名保持名称一致 -->
 	
 	<select id="findBusiness2Count" parameterType="Map" resultType="int">
-		select count(*) from t_accounting_bill 
+		select count(*) from t_business_bill 
 		<where>
-			business_bill_user_acc = #{user}
+			business_bill_user_acc = #{useracc}
 		</where>
 		limit #{index} , #{rows}
 	</select>
 	
 	<select id="findBusiness2List" parameterType="Map" resultMap="accMap">
-		select * from t_accounting_bill 
+		select * from t_business_bill 
 		<where>
-			business_bill_user_acc = #{user}
+			business_bill_user_acc = #{useracc}
 		</where>
 		limit #{index} , #{rows}
 	</select>
+	
+	
 </mapper>

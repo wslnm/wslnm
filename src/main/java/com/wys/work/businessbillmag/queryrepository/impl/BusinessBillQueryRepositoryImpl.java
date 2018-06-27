@@ -30,11 +30,11 @@ public class BusinessBillQueryRepositoryImpl implements IBusinessBillQueryReposi
 	 */
 	public Pager findBusinessBill2Pager(Map map){
 		Pager pager = (Pager) map.get("pager");
-		
 		map.put("index", pager.getIndex());
 		map.put("rows", pager.getRows());
 		int rows = businessBillMapper.findBusiness2Count(map);
 		pager.setTotalRows(rows);
+		
 		
 		List<AccountingBillMonthBean> list = businessBillMapper.findBusiness2List(map);
 		pager.setDatas(list);
