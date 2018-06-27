@@ -56,7 +56,7 @@ public class UserController {
 				userBean.setUserPwd(userBean.getUserPwd().trim());
 			}
 			
-			userHandleServiceImpl.updateUserBean(userBean);
+			userHandleServiceImpl.updateUserBean(userBean); 
 			
 			System.out.println("输出："+userBean);
 			if ( userTel == null || userPwd == null ||  userTel == "" || userPwd == "")  {
