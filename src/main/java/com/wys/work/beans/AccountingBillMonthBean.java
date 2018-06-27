@@ -54,8 +54,8 @@ public class AccountingBillMonthBean implements Serializable{
 	@Column(name="year")
 	private int year;
 	
-	@Transient
-	private UserBean user;
+	@Column(name="user_acc")
+	private String userAcc;
 
 	public AccountingBillMonthBean() {
 		super();

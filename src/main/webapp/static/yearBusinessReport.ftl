@@ -5,10 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>电信管理系统</title>
-	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
-	<link rel="stylesheet" type="text/css" href="css/nav.css">
-	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
-	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
+	<link rel="stylesheet" type="text/css" href="/project/static/css/htmleaf-demo.css">
+	<link rel="stylesheet" type="text/css" href="/project/static/css/nav.css">
+	<link rel="stylesheet" type="text/css" href="/project/static/fonts/iconfont.css">
+	<link rel="stylesheet" href="/project/static/layui/css/layui.css"  media="all">
 
 </head>
 <body>
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="layui/layui.js" charset="utf-8"></script>
+	<script src="/project/static/layui/layui.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
 	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
 	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
@@ -103,7 +103,7 @@
 				trigger: 'axis'
 			},
 			legend: {
-				data:['网易云音乐','小竹直播','qq秀','天天麻将','微视视频']
+				data:['网易云音乐','柚子','美团外卖']
 			},
 			grid: {
 				left: '3%',
@@ -129,32 +129,20 @@
 					name:'网易云音乐',
 					type:'line',
 					stack: '总量',
-					data:[120, 132, 101, 134, 90, 230, 210, 90, 230, 210, 90, 230]
+					data:[120, 132, 101, 134, 90, 230, 210, 440, 110, 210, 223, 230]
 				},
 				{
-					name:'小竹直播',
+					name:'柚子',
 					type:'line',
 					stack: '总量',
-					data:[220, 182, 191, 234, 290, 330, 310, 90, 230, 210, 90, 230]
+					data:[220, 182, 191, 234, 290, 330, 310, 240, 230, 210, 280, 260]
 				},
 				{
-					name:'qq秀',
+					name:'美团外卖',
 					type:'line',
 					stack: '总量',
-					data:[150, 232, 201, 154, 190, 330, 410, 90, 230, 210, 90, 230]
+					data:[150, 232, 201, 154, 190, 330, 410, 400, 480, 500, 550, 400]
 				},
-				{
-					name:'天天麻将',
-					type:'line',
-					stack: '总量',
-					data:[320, 332, 301, 334, 390, 330, 320, 90, 230, 210, 90, 230]
-				},
-				{
-					name:'微视视频',
-					type:'line',
-					stack: '总量',
-					data:[820, 932, 901, 934, 1290, 1330, 1320, 90, 230, 210, 90, 230]
-				}
 			]
 		};
 		;
