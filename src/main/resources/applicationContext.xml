@@ -137,51 +137,51 @@
 			1.缓存技术：cacheManager
 			2.获取数据库数据并处理数据
 		-->
-    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+    <!-- <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="sampleRealm" />
-        <!-- <property name="cacheManager" ref="cacheManager" /> -->
-    </bean> 
+        <property name="cacheManager" ref="cacheManager" />
+    </bean>  -->
     
       <!-- 缓存
     <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
     	<property name="cacheManagerConfigFile" value="classpath:shiro-ehcache.xml"/> 
     </bean>
      --> 
-    <!-- 項目自定义的Realm -->  
+    <!-- 項目自定义的Realm  
     <bean id="sampleRealm" class="com.wys.work.login.ShiroRealm"></bean>  
-    
+    --> 
       <!-- Shiro Filter -->  
     <!-- 配置shiro过滤器 -->
-    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
+    <!-- <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">  
     
-    	<!-- 当前过滤器需要使用的安全管理器 -->
+    	当前过滤器需要使用的安全管理器
         <property name="securityManager" ref="securityManager" />  
        
-        <!-- 访问web程序的欢迎页面 -->
+        访问web程序的欢迎页面
         <property name="loginUrl" value="/userInfo.ftl" />  
         
-        <!-- 认证成功后返回的页面 -->
+        认证成功后返回的页面
         <property name="successUrl" value="/index.ftl" /> 
         
-        <!-- 验证失败返回的页面 --> 
+        验证失败返回的页面 
         <property name="unauthorizedUrl" value="/LoginUser.ftl" />  
         
         <property name="filterChainDefinitions">  
             <value>  
-            	<!-- 匿名可访问的web资源 anon  -->
+            	匿名可访问的web资源 anon 
                 /login.ftl = anon 
                 /logonFirst = anon
               	/static/css/**=anon
               	/static/demo/**=anon
               	/static/html/**=anon
               	/static/images/**=anon
-                <!--验证成功后可访问的资源 authc -->
+                验证成功后可访问的资源 authc
                 /logout = logout
                 /** = authc 
                 
             </value>  
         </property>  
-    </bean>  
+    </bean> -->  
     
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->  
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />  
@@ -193,11 +193,11 @@
         <property name="proxyTargetClass" value="true" />  
     </bean>  
 
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">  
+    <!-- <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">  
         <property name="securityManager" ref="securityManager" />  
-    </bean>  
+    </bean>  --> 
     
-    <!-- shiro集成freemaker -->
+    <!-- shiro集成freemaker 
     <bean id="freemarkerConfig"  
          class="com.wys.work.login.FreeMarkerConfigExtend">  
        <property name="templateLoaderPaths">  
@@ -212,7 +212,7 @@
                <prop key="locale">zh_CN</prop>  
                <prop key="default_encoding">UTF-8</prop>  
            </props>  
-       </property>  
+       </property>  -->
    <!--    <property name="freemarkerVariables">  
            <map>  
                <entry key="BasePath" value="/fms" />  
@@ -221,7 +221,7 @@
            </map>  
        </property> -->  
   
-   </bean>  
+   <!--</bean>-->  
     
 	 
 	 
