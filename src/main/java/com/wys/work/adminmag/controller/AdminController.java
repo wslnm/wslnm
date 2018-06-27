@@ -1,8 +1,12 @@
 package com.wys.work.adminmag.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,6 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.wys.work.adminmag.handleservice.IAdminHandleService;
 import com.wys.work.adminmag.queryservice.IAdminQueryService;
 import com.wys.work.beans.AdminBean;
+import com.wys.work.beans.DataGrid;
+import com.wys.work.beans.MessagerBean;
+import com.wys.work.beans.Pager;
 
 /**
  * @author yangyong
@@ -33,11 +40,16 @@ public class AdminController {
 	 * 新增
 	 * @param admin
 	 */
-	@RequestMapping(value="/{id}",method= {RequestMethod.POST},produces = {"application/json;charset=utf-8"})
-	public void saveAdmin(AdminBean admin) {
+	@RequestMapping(value="/addadmin",method= {RequestMethod.POST})
+	public ModelAndView saveAdmin(AdminBean admin) {
 		
-		admin.setId(null);
+		ModelAndView modelAndView = new ModelAndView();
+		
 		adminHandleServiceImpl.saveAdmin(admin);
+		
+		modelAndView.setViewName("adminmag");
+		
+		return modelAndView;
 		
 	}
 
@@ -45,11 +57,26 @@ public class AdminController {
 	 * 删除
 	 * @param admin
 	 */
-	@RequestMapping(value="/{id}",method= {RequestMethod.DELETE},produces = {"application/json;charset=utf-8"})
-	public void deleteAdmin(AdminBean admin) {
+	@RequestMapping(value="/many",method= {RequestMethod.DELETE},produces = {"application/json;charset=utf-8"})
+	public MessagerBean deleteAdmin(@RequestBody List<AdminBean> admins) {
+		MessagerBean msg = new MessagerBean(true, 0, "操作成功！");
+		for (AdminBean adminBean : admins) {
+			adminHandleServiceImpl.deleteAdmin(adminBean);
+		}
+		return msg;
+	}
+	
+	@RequestMapping(value="/update2")
+	@ResponseBody
+	public ModelAndView update2(AdminBean admin) {
 		
-		adminHandleServiceImpl.deleteAdmin(admin);
+		ModelAndView modelAndView = new ModelAndView();
 		
+		adminHandleServiceImpl.updateAdmin(admin);
+		
+		modelAndView.setViewName("adminmag");
+		
+		return modelAndView;
 	}
 	
 	/**
@@ -118,8 +145,19 @@ public class AdminController {
 		return mv;
 	}
 	
-	
-	
+	@RequestMapping(value="/findadmin")
+	@ResponseBody
+	public DataGrid findAdmins(Map parmas, Pager pager) {
+		
+		parmas.put("adminname", !StringUtils.isEmpty("adminname")?"adminname":"");
+		parmas.put("adminacc", !StringUtils.isEmpty("adminacc")?"adminacc":"");
+		parmas.put("tel", !StringUtils.isEmpty("tel")?"tel":"");
+		pager = adminQueryServiceImpl.findAdmins2Pager(parmas, pager);
+		
+		DataGrid dataGrid = new DataGrid((long)pager.getTotalRows(), pager.getDatas());
+		
+		return dataGrid;
+	}
 	
 
 }
