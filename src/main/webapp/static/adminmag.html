@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/nav.css">
 	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
 	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
+	<script type="text/javascript" src="js/userlist.page.js"></script>
 
 </head>
 <body>
@@ -82,13 +83,13 @@
 			<span style="color: black">管理员账号：</span><div class="layui-inline"><input class="layui-input" name="adminacc" id="adminacc" autocomplete="off"></div>&nbsp;&nbsp;
 			<span style="color: black">联系电话：</span><div class="layui-inline"><input class="layui-input" name="tel" id="tel" autocomplete="off"></div>&nbsp;&nbsp;
 
-			<button class="layui-btn" data-type="reload">查询</button>
+			<button id="query" class="layui-btn" data-type="reload">查询</button>
 			<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
 
 			<br>
-			<button class="layui-btn layui-btn-normal">新增</button>
-			<button class="layui-btn layui-btn-warm">修改</button>
-			<button class="layui-btn layui-btn-danger">删除</button>
+			<button class="layui-btn layui-btn-normal" onclick="window.location.href='adminadd.html'">新增</button>
+			<button class="layui-btn layui-btn-warm" onclick="window.location.href='adminupdate.html'">修改</button>
+			<button id="deleteAdmins" class="layui-btn layui-btn-danger">删除</button>
 		</div>
 	</div>
 </div>
@@ -100,96 +101,16 @@
 		//方法级渲染
 		table.render({
 			elem: '#LAY_table_user'
-//				,url: '/demo/table/user/'
+ 			,url: '/project/adminmag/findadmin/'
 			,cols: [[
 				{checkbox: true, fixed: true}
 				,{field:'adminname', title: '管理员名称', width:200}
 				,{field:'adminacc', title: '管理员账号', width:200}
 				,{field:'adminpwd', title: '管理员密码', width:200, sort: true}
-				,{field:'tel', title: '联系电话	', width:200,sort:true}
+				,{field:'tel', title: '联系电话', width:200,sort:true}
 				,{field:'email', title: '电子邮箱',width:200}
 				,{field:'adminmessage', title: '管理员信息', sort: true, width:200}
 			]]
-			,data:[{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},{
-				"adminname":"aaa",
-				"adminacc":"111",
-				"adminpwd":"111",
-				"tel":"12",
-				"email":"xxx",
-				"adminmessage":"aaaaaaaa"
-			},
-			]
-
 			,id: 'testReload'
 			,page: true
 			,height: 315

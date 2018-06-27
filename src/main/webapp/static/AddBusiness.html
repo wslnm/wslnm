@@ -70,7 +70,8 @@
 				</li>
 	        </ul>
 	    </div>
-
+	    
+<form class="layui-form" action="/project/businessmag/savebusiness" method="post">
 	<header class="htmleaf-header">
 		<h1>添加业务账户</h1>
 		<div class="htmleaf-links"></div>
@@ -80,16 +81,20 @@
 		业务账号：<input type="text"><br><br>
 		密码：<input type="text"><br><br>
 		资费类型：<select >
-					<option value="5113254949499">霸王套餐</option>
+					<option value="234324" selected="">A套餐</option>
+					<option value="511499">B套餐</option>
+					<option value="513339">C套餐</option>
 				</select><br><br>
+		
+    
 		IP：<input type="text"><br><br>
 
 
-		<button class="layui-btn layui-btn-normal">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="demo1">添加</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<button class="layui-btn layui-btn-normal">返回</button>
+		<button type="reset" onclick="window.location.href='FindBusiness.html'" class="layui-btn layui-btn-normal">返回</button>
 	</div>
-
+</form>
 
 
 	<script src="layui/layui.js" charset="utf-8"></script>

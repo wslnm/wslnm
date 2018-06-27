@@ -44,6 +44,19 @@
 		<property name="defaultEncoding" value="utf-8"></property>
 	</bean>
 	
+		
+	
+	<!-- 配置启用Shiro的注解功能 -->  
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"   
+        depends-on="lifecycleBeanPostProcessor">  
+        <property name="proxyTargetClass" value="true"></property>  
+    </bean>  
+
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">  
+	        <property name="securityManager" ref="securityManager"/>  
+	 </bean> 
+	
+	
 	<!-- 配置freemaker试图解析器 -->
 	<bean id="freemarkerConfig"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

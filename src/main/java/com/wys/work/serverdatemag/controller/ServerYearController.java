@@ -1,14 +1,11 @@
 package com.wys.work.serverdatemag.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.connector.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.wys.work.beans.Pager;
 import com.wys.work.beans.ServerBean;
-import com.wys.work.beans.ServerYearBean;
 import com.wys.work.serverdatemag.handlerservice.IServerYearHandleService;
 import com.wys.work.serverdatemag.queryservice.IServerYearQueryService;
 import com.wys.work.servermag.queryservice.IServerQueryService;
