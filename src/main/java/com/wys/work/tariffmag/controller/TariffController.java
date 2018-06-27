@@ -37,10 +37,11 @@ public class TariffController {
 		Pager pager = new Pager();
 		pager.setPage(Integer.parseInt(request.getParameter("page")));
 		pager.setRows(Integer.parseInt(request.getParameter("limit")));
+	
+		Pager newPager = tariffQueryServiceImpl.findTariffBean2Pager(pager);
 		Map map = new HashMap<String, Object>();
 		map.put("code", 0);
 		map.put("msg", "");
-		Pager newPager = tariffQueryServiceImpl.findTariffBean2Pager(pager);
 		map.put("count", newPager.getTotalRows());
 		map.put("data", newPager.getDatas());
 		return map;
