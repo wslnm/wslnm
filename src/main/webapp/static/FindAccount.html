@@ -9,7 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="css/nav.css">
 	<link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
 	<link rel="stylesheet" href="layui/css/layui.css"  media="all">
-
+	<script type="text/javascript" src="js/accountlist.page.js"></script>
+	
 </head>
 <body>
 	<div class="nav">
@@ -80,13 +81,13 @@
 			<div class="demoTable">
 				<span style="color: black">账号：</span><div class="layui-inline"><input class="layui-input" name="peopleInfo" id="peopleInfo" autocomplete="off"></div>&nbsp;&nbsp;
 				<span style="color: black">姓名：</span><div class="layui-inline"><input class="layui-input" name="name" id="name" autocomplete="off"></div>&nbsp;&nbsp;
-				<button class="layui-btn" data-type="reload">搜索</button>
+				<button id="query" class="layui-btn" data-type="reload">搜索</button>
 				<table class="layui-hide" id="LAY_table_account" lay-filter="user"></table>
 
 				<br>
-				<button class="layui-btn layui-btn-normal">新增</button>
-				<button class="layui-btn layui-btn-warm">修改</button>
-				<button class="layui-btn layui-btn-danger">删除</button>
+				<button class="layui-btn layui-btn-normal" onclick="window.location.href='AddAccount.html'">新增</button>
+				<button class="layui-btn layui-btn-warm" onclick="window.location.href='UpdateAccount.html'">修改</button>
+				<button id="deleteAccount" class="layui-btn layui-btn-danger">删除</button>
 				<button class="layui-btn layui-btn-normal layui-btn-radius">开通</button>
 				<button class="layui-btn layui-btn-danger layui-btn-radius">暂停</button>
 			</div>
@@ -102,7 +103,7 @@
 			//方法级渲染
 			table.render({
 				elem: '#LAY_table_account'
-				,url: '/project/user/findadmin/'
+				,url: '/project/user/findusers/'
 				,cols: [[
 					{checkbox: true, fixed: true}
 					,{field:'peopleInfo', title: '账号',sort: true, width:190}
@@ -110,74 +111,10 @@
 					,{field:'cost', title: '联系电话', width:370, sort: true}
 					,{field:'caozuo', title: '操作', width:200, sort: true}
 				]]
-				,data:[
-					{
-					"peopleInfo":"123",
-					"account":"张三",
-					"cost":"15584658946", "caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"2123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},{
-						"peopleInfo":"123",
-						"account":"张三",
-						"cost":"15584658946","caozuo":"<a href='详细业务账户.html'>详细</a>"
-					},
-
-				]
-
 				,id: 'testReload'
 				,page: true
 				,height: 315
 			});
-
-
-
 
 			var $ = layui.$, active = {
 				reload: function(){
