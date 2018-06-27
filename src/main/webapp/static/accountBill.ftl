@@ -86,111 +86,73 @@
 
 				<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
 				<br/><br/>
-				<button class="layui-btn" data-type="reload"style="margin-left: 40px">支付</button>
 			</div>
 		</div>
 	</div>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="look">查看</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="pay">支付</a>
+    </script>
 	<script src="layui/layui.js" charset="utf-8"></script>
 	<script>
 		layui.use('table', function(){
-			var table = layui.table;
+            var laydate = layui.laydate;
+            var form = layui.form;
+            var table = layui.table;
+            var $ = layui.$;
+            var element = layui.element;
+
+            //监听工具条
+            table.on('tool(user)', function(obj){
+                var data = obj.data;
+                if(obj.event === 'look'){
+                    window.location.href="/project/static/businessBill.ftl?useracc="+data.userAcc;
+                }else if(obj.event === 'pay'){
+                    window.location.href="/project/accbill/payacc?useracc="+data.userAcc;
+                }
+            });
 
 			//方法级渲染
 			table.render({
 				elem: '#LAY_table_user'
-//				,url: '/demo/table/user/'
+                ,url: '/project/accbill/findAll'
 				,cols: [[
 					{checkbox: true, fixed: true}
-					,{field:'peopleInfo', title: '身份信息', width:200}
-					,{field:'account', title: '账务账号', width:200}
-					,{field:'cost', title: '费用', width:200, sort: true}
-					,{field:'month', title: '月份', width:200,sort:true}
-					,{field:'payWay', title: '支付方式',width:200}
-					,{field:'payStatus', title: '支付状态', sort: true, width:200}
+					,{field:'userIdcard', title: '身份信息', width:140}
+					,{field:'userAcc', title: '账务账号', width:140}
+					,{field:'accountingBillCost', title: '费用', width:140, sort: true}
+					,{field:'accountingBillMonth', title: '月份', width:140,sort:true}
+					,{field:'accountingBillCostPayMethod', title: '支付方式',width:140}
+					,{field:'accountingBillPayStatus', title: '支付状态', sort: true, width:140}
+                    ,{field: 'toolbar', toolbar: '#barDemo', width: 200}
 				]]
-				,data:[{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},{
-					"peopleInfo":"yuki",
-					"account":"akame",
-					"cost":"800",
-					"month":"12",
-					"payWay":"微信",
-					"payStatus":"未支付"
-				},
-				]
 
 				,id: 'testReload'
 				,page: true
 				,height: 315
+                //回调函数
+                ,done: function(res, curr, count){
+                    //如果是异步请求数据方式，res即为你接口返回的信息。
+                    //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+                    console.log(res);
+
+                    //得到当前页码
+                    console.log(curr);
+
+                    //得到数据总量
+                    console.log(count);
+                    $("#account_notice").html("数据总数："+count);
+
+                    //分类显示中文名称
+                    $("[data-field='state']").children().each(function(){
+                        if($(this).text()=='0'){
+                            $(this).text("已开通")
+                        }else if($(this).text()=='1'){
+                            $(this).text("已暂停")
+                        }
+
+                    })
+                }
 			});
 
 			var $ = layui.$, active = {
