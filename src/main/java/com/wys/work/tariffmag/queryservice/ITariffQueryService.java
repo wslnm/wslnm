@@ -3,6 +3,7 @@ package com.wys.work.tariffmag.queryservice;
 import java.util.Map;
 
 import com.wys.work.beans.Pager;
+import com.wys.work.beans.TariffBean;
 
 /**
  * @author Administrator
@@ -17,5 +18,8 @@ public interface ITariffQueryService {
 	 * @param pager
 	 */
 	public Pager findTariffBean2Pager(Pager pager);
+	
+	
+	public TariffBean findOneTariff(Long id);
 
 }

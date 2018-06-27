@@ -41,5 +41,8 @@
 		select * from t_tariff limit #{index} , #{rows}
 	</select>
 	 
+	<select id="findOneTariff" parameterType="Long" resultMap="tariffMap">
+		select * from t_tariff where id = #{id}
+	</select>
 	
 </mapper>

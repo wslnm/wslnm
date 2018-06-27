@@ -38,4 +38,10 @@ public class TariffQueryRepository implements ITariffQueryRepository {
 		return pager;
 	}
 
+	@Override
+	public TariffBean findOneTariff(Long id) {
+		// TODO 自动生成的方法存根
+		return tariffMapper.findOneTariff(id);
+	}
+
 }

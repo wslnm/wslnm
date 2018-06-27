@@ -3,6 +3,7 @@ package com.wys.work.tariffmag.mapper;
 import java.util.List;
 
 import com.wys.work.beans.Pager;
+import com.wys.work.beans.TariffBean;
 
 
 /**
@@ -23,5 +24,7 @@ public interface TariffMapper {
 	 * @param params
 	 */
 	public List findTariffBean2List(Pager pager);
+	
+	public TariffBean findOneTariff(Long id);
 
 }
