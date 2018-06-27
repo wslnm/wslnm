@@ -9,7 +9,14 @@
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
     <link rel="stylesheet" href="layui/css/layui.css"  media="all">
-
+    <script src="js/layui.js"></script>
+	<script src="js/jQuery-2.2.2-min.js"></script>
+	<style>
+		#table{
+			position:absolute;
+			left:260px;
+		}
+	</style>
 </head>
 <body>
 <div class="nav">
@@ -80,24 +87,119 @@
     <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
     <button class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
 </div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<button class="layui-btn layui-btn-normal layui-btn-radius" style="height: 35px">开通资费</button>
-<button class="layui-btn layui-btn-warm layui-btn-radius" style="height: 35px">暂停资费</button>
-
-<div style="padding: 5px; background: #eee;">
-    <table style="width: 100%; height: 100%">
-        <thead>
-        <tr>
-            <th>资费名称</th>
-            <th>资费类型</th>
-            <th>基本时长</th>
-            <th>基本费用</th>
-            <th>单位费用</th>
-            <th>资费说明</th>
-            <th>资费状态</th>
-        </tr>
-        </thead>
-    </table>
+<div id="table">
+    <table class="layui-table" id="LAY_table_account" lay-filter="accountuv" lay-data="{id: 'idTest'}"></table>
 </div>
+<script type="text/html" id="barDemo">
+  <a class="layui-btn layui-btn-xs" lay-event="up">编辑</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="on">开通</a>
+  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="off">暂停</a>
+</script>
 </body>
+	<script>
+		layui.use(['laydate','form', 'table','element','laypage'],function(  ){
+
+        		var laydate = layui.laydate;
+           	 	var form = layui.form;
+            	var table = layui.table;
+    			var $ = layui.$;
+            	var element = layui.element;
+
+				
+				//监听工具条
+				table.on('tool(accountuv)', function(obj){
+				var data = obj.data;
+				if(obj.event === 'up'){
+					window.location.href="/project/static/UpdateTariff.ftl?id="+data.id;
+				}else if(obj.event === 'on'){
+					window.location.href="/project/tariff/ooTariff?id="+data.id+"&status=1";
+				}else if(obj.event === 'off'){
+					window.location.href="/project/tariff/ooTariff?id="+data.id+"&status=0";
+				}
+  });
+            	form.render();
+           		 element.init();
+
+        		var table = layui.table;
+                        //执行渲染
+                        table.render({
+                         elem:'#LAY_table_account'
+                         ,height: 332
+                         ,cellMinWidth: 80
+                         ,url: '/project/tariff/findAll' //数据接口
+                         ,cols:  [[
+                                {field: 'id', title: 'ID', width: 60}
+                               ,{field: 'tariffName', title: '资费名称', width: 110}
+                               ,{field: 'tariffType', title: '资费类型', width: 110}
+                               ,{field: 'basicTime', title: '使用时长', width: 110}
+                               ,{field: 'basicCost', title: '基本费用', width: 110}
+                               ,{field: 'unitCost', title: '单位费用', width: 110}
+                               ,{field: 'tariffDirections', title: '资费说明', width: 110}
+                               ,{field: 'tariffStatus', title: '资费状态', width: 110}
+							   ,{field: 'toolbar', toolbar: '#barDemo', width: 200}
+                         ]]
+
+                	,id:'accountlist'
+                	,page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+          				layout: ['limit', 'count', 'prev', 'page', 'next'] //自定义分页布局
+         				 //,curr: 1 //设定初始在第 5 页
+         				 ,groups: 1 //只显示 1 个连续页码
+         			 	,first: '首页' //不显示首页
+          				,last: '尾页 '//不显示尾页
+          				,limit:5
+
+        			}
+
+        			//回调函数
+        			  ,done: function(res, curr, count){
+        			//如果是异步请求数据方式，res即为你接口返回的信息。
+       				 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+        				console.log(res);
+
+        				//得到当前页码
+       				 console.log(curr);
+
+       				 //得到数据总量
+        				console.log(count);
+     				 $("#account_notice").html("数据总数："+count);
+
+     				  	//分类显示中文名称
+               		$("[data-field='state']").children().each(function(){
+                        if($(this).text()=='0'){
+                           $(this).text("已开通")
+                        }else if($(this).text()=='1'){
+                           $(this).text("已暂停")
+                        }
+
+               			 })
+     				}
+    			});
+
+    			 var active = {
+        			reload: function(){
+         			 var accountNumber = $('#accountNumber');
+         			 var realName=$('#realName');
+          					//执行重载
+         				 table.reload('accountlist', {
+           				 	page: {
+              					curr: 1 //重新从第 1 页开始
+           					}
+            				,where: {
+               				 	account: accountNumber.val()
+               				 	,name:realName.val()
+
+           				 	}
+          				});
+        			}
+      			};
+
+        		$('.layui-form-item .layui-btn').on('click', function(){
+        			var type = $(this).data('type');
+        			active[type] ? active[type].call(this) : '';
+     			 });
+				
+        });
+		
+		
+	</script>
 </html>

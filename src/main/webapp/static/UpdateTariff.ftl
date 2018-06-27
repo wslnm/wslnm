@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="css/nav.css">
     <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
     <link rel="stylesheet" href="layui/css/layui.css"  media="all">
-
+    <script src="js/layui.js"></script>
+    <script src="js/jQuery-2.2.2-min.js"></script>
 </head>
 <body>
 <div class="nav">
@@ -76,23 +77,34 @@
     <div class="htmleaf-links"></div>
 </header>
 <div class="neirong" style="margin-left: 600px;margin-top: 40px;color: #0044cc">
-    资费名称：<input type="text"><br><br>
-    资费类型：<select >
-    <option value="year">包年</option>
-    <option value="month">包月</option>
-    <option value="day">记时</option>
-</select><br><br>
-    基本时长：<input type="text"><br><br>
-    基本费用：<input type="text" placeholder="资费类型包月时填写"><br><br>
-    单位费用：<input type="text" placeholder="资费类型“记时”时填写"><br><br>
-    资费说明信息：<textarea role="3" cols="10"></textarea><br><br>
+  <form id="form" action="/project/tariff/upTariff" method="post">
+    <input type="hidden" id="id" name="id" >
+    资费名称：<input type="text" name="tariffName"><br><br>
+    资费类型：<select name="tariffType">
+    <option value="1">包年</option>
+    <option value="2">包月</option>
+    <option value="3">记时</option>
+    </select><br><br>
+    基本时长：<input type="text" name="basicTime"><br><br>
+    基本费用：<input type="text" name="basicCost" placeholder="资费类型包月时填写"><br><br>
+    单位费用：<input type="text" name="unitCost" placeholder="资费类型“记时”时填写"><br><br>
+    资费说明信息：<textarea role="3" name="tariffDirections" cols="10"></textarea><br><br>
     资费状态：暂停<br><br>
-
-
-    <button class="layui-btn layui-btn-normal">确认修改</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="layui-btn layui-btn-normal" id="tijiao">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <button class="layui-btn layui-btn-normal">返回</button>
-</div>
+    </form>
 
+</div>
+	<script>
+        var thisURL = document.URL;
+        var  getval =thisURL.split('?')[1];
+        var showval= getval.split("=")[1];
+
+        $("#tijiao").click(function () {
+            $("#id").val(showval)
+            $("#form").submit()
+        })
+	</script>
 </body>
 </html>
