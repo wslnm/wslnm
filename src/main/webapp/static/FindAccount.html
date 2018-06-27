@@ -78,10 +78,10 @@
 		<div class="" style="width:auto;height:640px;margin-left: 220px;">
 			<div>&nbsp;</div>
 			<div class="demoTable">
-				<span style="color: black">账号：</span><div class="layui-inline"><input class="layui-input" name="id" id="peopleInfo" autocomplete="off"></div>&nbsp;&nbsp;
+				<span style="color: black">账号：</span><div class="layui-inline"><input class="layui-input" name="peopleInfo" id="peopleInfo" autocomplete="off"></div>&nbsp;&nbsp;
 				<span style="color: black">姓名：</span><div class="layui-inline"><input class="layui-input" name="name" id="name" autocomplete="off"></div>&nbsp;&nbsp;
 				<button class="layui-btn" data-type="reload">搜索</button>
-				<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+				<table class="layui-hide" id="LAY_table_account" lay-filter="user"></table>
 
 				<br>
 				<button class="layui-btn layui-btn-normal">新增</button>
@@ -101,8 +101,8 @@
 
 			//方法级渲染
 			table.render({
-				elem: '#LAY_table_user'
-//				,url: '/demo/table/user/'
+				elem: '#LAY_table_account'
+				,url: '/project/user/findadmin/'
 				,cols: [[
 					{checkbox: true, fixed: true}
 					,{field:'peopleInfo', title: '账号',sort: true, width:190}
