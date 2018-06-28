@@ -20,13 +20,14 @@ public class LoginLogMapperSqlProvider {
 		Map<String, Object> params = (Map<String, Object>) map.get("params");
 		StringBuilder sb = new StringBuilder("select count(*) from t_login_log where 1=1 ");
 		if (params.get("admin")!=null&&StringUtils.hasLength(((String)params.get("admin")).trim())) {
-			sb.append("and admin_name like concat('"+params.get("admin")+"','%') ");
+			sb.append("and admin_name like concat('%','"+params.get("admin")+"','%') ");
 		}
 		if (params.get("startTime")!=null) {
-			sb.append("and operation_date >= '"+params.get("time")+"' ");
+			sb.append("and operation_date >= '"+params.get("startTime")+"' ");
 		}
-
-		
+		if ((params.get("endTime") != null)) {
+			sb.append("and operation_date <= '" + params.get("endTime")+"'");
+		}
 		return sb.toString();
 	}
 	
@@ -40,10 +41,13 @@ public class LoginLogMapperSqlProvider {
 		Map<String, Object> params = (Map<String, Object>) map.get("params");
 		StringBuilder sb = new StringBuilder("select * from t_login_log where 1=1 ");
 		if (params.get("admin")!=null&&StringUtils.hasLength(((String)params.get("admin")).trim())) {
-			sb.append("and admin_name like concat('"+params.get("admin")+"','%') ");
+			sb.append("and admin_name like concat('%','"+params.get("admin")+"','%') ");
 		}
 		if (params.get("startTime")!=null) {
-			sb.append("and operation_date > '"+params.get("time")+"' ");
+			sb.append("and operation_date > '"+params.get("startTime")+"' ");
+		}
+		if ((params.get("endTime") != null)) {
+			sb.append("and operation_date <= '" + params.get("endTime")+"'");
 		}
 	
 		sb.append("limit "+params.get("index")+","+params.get("rows"));

@@ -35,6 +35,7 @@ public interface LoginLogMapper {
 	@Results({
 			@Result(id=true,property="id",column="id",javaType=Long.class),
 			@Result(property="adminName",column="admin_name",javaType=String.class),
+			@Result(property="roleName",column="role_name",javaType=String.class),
 			@Result(property="operation",column="operation",javaType=Integer.class),
 			@Result(property="ip",column="ip",javaType=String.class),
 			@Result(property="operationDate",column="operation_date",javaType=Date.class)
