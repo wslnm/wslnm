@@ -11,7 +11,7 @@ import org.springframework.util.StringUtils;
 public class OperationLogMapperSqlProvider {
 	
 	/**
-	 * 操作日志mapper方法countLoginLogByParams的提供类
+	 * 操作日志mapper方法countOperationLogByParams的提供类
 	 * @param map 参数
 	 * @return sql
 	 */
@@ -28,7 +28,10 @@ public class OperationLogMapperSqlProvider {
 			sb.append("and system_mod = "+params.get("mod")+" ");
 		}
 		if (params.get("startTime")!=null) {
-			sb.append("and operation_date >= '"+params.get("time")+"' ");
+			sb.append("and operation_time >= '"+params.get("startTime")+"' ");
+		}
+		if ((params.get("endTime") != null)) {
+			sb.append("and operation_time <= '" + params.get("endTime")+"'");
 		}
 
 		return sb.toString();
@@ -36,7 +39,7 @@ public class OperationLogMapperSqlProvider {
 	
 	
 	/**
-	 * 登陆日志mapper方法findLoginLogByParams的提供类
+	 * 操作日志mapper方法findOperationLogByParams的提供类
 	 * @param map 参数
 	 * @return sql
 	 */
@@ -53,7 +56,10 @@ public class OperationLogMapperSqlProvider {
 			sb.append("and system_mod = "+params.get("mod")+" ");
 		}
 		if (params.get("startTime")!=null) {
-			sb.append("and operation_date >= '"+params.get("time")+"' ");
+			sb.append("and operation_time >= '"+params.get("startTime")+"' ");
+		}
+		if ((params.get("endTime") != null)) {
+			sb.append("and operation_time <= '" + params.get("endTime")+"'");
 		}
 
 		sb.append("limit "+params.get("index")+","+params.get("rows"));

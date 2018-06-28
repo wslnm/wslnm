@@ -37,7 +37,7 @@ public interface OperationLogMapper {
 	 */
 	@Results({ @Result(id = true, property = "id", column = "id", javaType = Long.class),
 			@Result(property = "roleName", column = "role_name", javaType = Integer.class),
-			@Result(property = "operationDate", column = "operation_date", javaType = Date.class),
+			@Result(property = "operationDate", column = "operation_time", javaType = Date.class),
 			@Result(property = "operation", column = "operation", javaType = String.class),
 			@Result(property = "systemMod", column = "system_mod", javaType = Integer.class),
 			@Result(property = "adminName", column = "admin_name", javaType = String.class) })
